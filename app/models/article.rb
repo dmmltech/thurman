@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-	# resourcify
+	resourcify
 	is_impressionable :counter_cache => true
 	belongs_to :category
 	has_many :comments, as: :commentable
