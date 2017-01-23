@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thurman</title>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" crossorigin="anonymous">
+     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+     <link rel="alternate" type="application/rss+xml"  href="<%= default_url%>feed?format=rss">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+<header>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="<%= default_twitter %>"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= default_facebook %>"><i class="fa fa-facebook"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= default_linkedin %>"><i class="fa fa-linkedin"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= default_instagram %>"><i class="fa fa-instagram"></i></a>
+      </li>
+    </ul>
+
+    <div class="brand text-center">
+      <%= current_page?(root_path) ? '<h1>'.html_safe : '<h2>'.html_safe %>
+        <%= link_to site_title, root_path %>
+      <%= current_page?(root_path) ? '</h1>'.html_safe : '</h2>'.html_safe %>
+       <%= current_page?(root_path) ? '<h2>'.html_safe : '<h3>'.html_safe %>
+        <span class="text-muted"><%= site_tagline %></span>
+      <%= current_page?(root_path) ? '</h2>'.html_safe : '</h3>'.html_safe %>
+    </div>
+
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="<%= articles_path %>">Articles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= categories_path %>">Categories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= tags_path %>">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= pages_path %>">Pages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= archives_path %>">Archives</a>
+      </li>
+    </ul>
+    <hr/>
+</header>
+ <div class="breads">
+   <div class="container">
+    <%= breadcrumbs pretext: "You are here: ",
+          separator: " &rsaquo; ", semantic: true %>
+    </div>
+</div>
+
+    <div class="container wrapper">
+        <p class="flash">
+          <%= flash.notice %>
+        </p>
+     
+        <%= yield %>
+    </div>
+
+    <footer class="footer text-center text-muted">
+     <p> &copy; <%= Time.now.strftime('%Y') %>  <%= site_title %> - Built on Thurman</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"  crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+     <script type="text/javascript">
+      $(document).ready(function() {
+         $("#tags").tagit({
+            availableTags: <%=raw auto_suggestions('tags').to_json %>,
+            allowSpaces: true
+        });
+      });
+
+    </script>
+
+  </body>
+</html>

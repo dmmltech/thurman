@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-md-8 offset-md-2 col-xs-12">
+		<% breadcrumb :articles, @articles %>
+		
+		<h1><%= site_title %>  Articles</h1>
+
+		<ul id="articles">
+		  <% @articles.each do |article| %>
+		    <li>
+		      <%= link_to article.title, article_path(article) %>
+		    </li>
+		  <% end %>
+		</ul>
+
+		<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+
+		<%= link_to "Create a New Article", new_article_path, :class=>'btn btn-primary' %>
+	</div>
+</div>
+

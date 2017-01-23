@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2 col-xs-12">
+
+    <h1><%= site_title %> Archives</h1>
+      <% @archives.sort.each do |month, archived| %>
+        <p class="lead"><%= month.strftime('%B %Y') %></p>
+       <ul class="list-unstyled" >
+          <% for archive in archived %>
+            <li>
+             <i class="fa fa-file-text-o"></i> <%= link_to "#{archive.title}", article_path(archive) %>
+             <small> <%= archive.created_at.to_date.to_s(:long) %></small>
+            </li>
+          <% end %>
+        </ul> 
+      <% end %>
+
+    </div>
+</div>
+  
