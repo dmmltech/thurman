@@ -3,14 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-html{
-  position: relative;
-  min-height: 100%;
+html,
+body {
+  height: 100%;
+  margin:0;
+  padding:0;
 }
 
 body {
-  margin-bottom: 60px;
   line-height:2em;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -60px;
+  padding: 0 24px 60px;
 }
 
 header{
@@ -32,7 +40,6 @@ header{
 }
 
 footer {
-  bottom: 0;
   height: 60px;
   margin-top:60px;
   line-height:60px;
