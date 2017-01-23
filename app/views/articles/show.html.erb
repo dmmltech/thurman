@@ -4,14 +4,17 @@
 
   <h1 class="page-header"><%= @article.title %></h1>
   <div class="meta row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= time_ago_in_words(@article.created_at) %> ago
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= @article.reading_time %>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= @article.impressionist_count %> Views 
+    </div>
+    <div class="col-md-3">
+      <%= link_to @article.user.name, author_path(name: @article.user) %>
     </div>
   </div>
 

@@ -51,6 +51,10 @@ class ArticlesController < ApplicationController
 		get_articles_by_month
 	end
 
+	def author
+		get_articles_by_author
+	end
+
 	def feed
 	    @articles = Article.all
 	    respond_to do |format|
@@ -69,7 +73,8 @@ class ArticlesController < ApplicationController
 	  	:counter_cache,
 	  	:status,
 	  	:published_at,
-	  	:visibility
+	  	:visibility,
+	  	:user_id
 	  	)
 	end
 
@@ -79,6 +84,11 @@ class ArticlesController < ApplicationController
 
 	def get_articles_by_category
 		return @categories = Article.all.group_by{ |r| r.category.name}
+	end
+
+	def get_articles_by_author
+		@user = User.find(params[:name])
+		return @archives = Article.where(user_id: @user.id).group_by{ |r| r.category.name}
 	end
 
 

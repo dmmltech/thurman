@@ -1,6 +1,6 @@
 <%= simple_form_for [ @article, @comment ] do |f| %>
   
-    <%= f.input :author_name, :as => :hidden, :input_html=>{:value=> current_user.name } if user_signed_in? %>
+    <%= f.input :user_id, :as => :hidden, :input_html=>{:value=> current_user.id} if user_signed_in? %>
   
   
     <%= f.input :body, :class=>'form-control', :label=>'Your Comment' %>

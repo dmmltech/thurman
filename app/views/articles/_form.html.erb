@@ -4,47 +4,40 @@
       <li><%= error %></li>
     <% end %>
   </ul>
-  <div class="form-group">
+  
     <%= f.input :title, :class=> 'form-control' %>
-  </div>
-  <div class="form-group">
+  
     <%= f.label :body %>
     <%= f.trix_editor :body  %>
-  </div>
-  <div class="form-group">
+  
     <%= f.association :category, 
       label_method: :name, 
       value_method: :id, 
       selected: @article.category ? @article.category.id : Category.root.id,
       :class=>"form-control" 
     %>
-  </div>
 
-  <div class="form-group">
+  
     <%= f.input :status, 
         collection: status_options,
         selected: 'Draft', 
         input_html: { class: 'chosen-select form-control' }  
         %>
-  </div>
 
-  <div class="form-group">
+  
     <%= f.input :published_at, :class=> 'form-control', :input_html => { :value => Date.current.in_time_zone  }%>
-  </div>
 
-  <div class="form-group">
+  
     <%= f.input :visibility, 
         collection: visibility_options,
         selected: 'Public', 
         input_html: { class: 'chosen-select form-control' }  
         %>
-  </div>
 
+  <%= f.input :user_id, :as => :hidden, :input_html=>{:value=> current_user.id} if user_signed_in? %>
 
-  <div class="form-group">
+  
     <%= f.input :tag_list, :class=>"form-control", :input_html => {:id=>'tags', :value=> @article.tag_list.to_s},  label:  'Tags', :hint=>'(separated by commas)' %>
-  </div>
-  <div class="form-group">
+  
     <%= f.submit :class=>'btn btn-default btn-large btn-block' %>
-  </div>
 <% end %>

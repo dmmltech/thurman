@@ -2,24 +2,22 @@
   <div class="card-block">
   		<div class="row no-gutters">
 			<div class="col-md-2">
-		  	     <%= image_tag gravatar_url("you@youremail.com", 64), alt: "" %>
+		  	     <%= image_tag gravatar_url(comment.user.email, 64), alt: "" %>
 		  	 </div>
 		  	 <div class="col-md-10">
-				<h4 class="card-title"><strong><%= comment.author_name %></strong> commented</h4>
+				<h4 class="card-title"><strong><%= comment.user.name %></strong> commented</h4>
 				<p class="card-text comment"><%= comment.body %></p>
 				<p class="card-text text-left"><small class="text-muted">
 					<%= link_to comment.media, :target => '_blank', :rel => 'nofollow' %> </small></p>
 				<hr/>
 				<div class="row no-gutters">
 					<div class="col-md-8">
-						<%# if comment.commentable_type %>
-							<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#replyModal<%= comment.id %>">
-							 <i class="fa fa-share"></i> Reply
-							</button>
-							<a class="btn btn-warning btn-sm" data-toggle="collapse" href="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapseExample">
-							   <i class="fa fa-comments"></i> <%= comment.comments.count.to_s + ' Replies' %>
-							</a>
-						<%# end %>
+						<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#replyModal<%= comment.id %>">
+						 <i class="fa fa-share"></i> Reply
+						</button>
+						<a class="btn btn-warning btn-sm" data-toggle="collapse" href="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapseExample">
+						   <i class="fa fa-comments"></i> <%= comment.comments.count.to_s + ' Replies' %>
+						</a>
 					</div>
 					<div class="col-md-4">
 					  <p class="card-text text-right"><small class="text-muted">

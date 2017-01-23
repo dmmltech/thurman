@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
 	resourcify
 	is_impressionable :counter_cache => true
+	belongs_to :user
 	belongs_to :category
 	has_many :comments, as: :commentable
 	has_many :taggings

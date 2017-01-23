@@ -16,7 +16,10 @@ class CommentsController < ApplicationController
 	end
 
 	def comment_params
-	  params.require(:comment).permit(:author_name, :body, :media)
+	  params.require(:comment).permit(:author_name, 
+	  								  :body, 
+	  								  :media, 
+	  								  :user_id)
 	end
 
 	def find_commentable

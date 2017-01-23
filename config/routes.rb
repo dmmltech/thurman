@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   get 'sitemap/index'
 
 	root to: 'articles#index'
-
+    match 'author' => 'articles#author', :via => 'get'
 	match 'archives' => 'articles#archives', :via => 'get'
+
 
 	get 'feed' => 'articles#feed'
 
