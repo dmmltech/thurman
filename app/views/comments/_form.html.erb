@@ -1,14 +1,14 @@
 <%= simple_form_for [ @article, @comment ] do |f| %>
-  <div class="form-group">
+  
     <%= f.input :author_name, :as => :hidden, :input_html=>{:value=> current_user.name } if user_signed_in? %>
-  </div>
-  <div class="form-group">
+  
+  
     <%= f.input :body, :class=>'form-control', :label=>'Your Comment' %>
-  </div>
-  <div class="form-group">
+  
+  
     <%= f.input :media, :class=>'form-control', :label=>'Link' %>
-  </div>
-  <div class="form-group">
+  
+  
     <%= f.submit :class=>'btn btn-default btn-block' %>
-  </div>
+  
 <% end %>

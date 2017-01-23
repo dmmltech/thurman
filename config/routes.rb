@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 	
 	resources :pages, path: :page
 
-	devise_for :users
+	devise_for :users, controllers: { registrations: "registrations" }
 
 	devise_scope :user do
 		match 'login' => 'devise/sessions#new', :via => 'get'

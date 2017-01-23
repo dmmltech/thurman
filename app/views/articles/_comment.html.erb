@@ -2,6 +2,10 @@
   <div class="card-block">
 	  <h4 class="card-title"><%= comment.author_name %> commented</h4>
 	  <p class="card-text comment"><%= comment.body %></p>
+
+		  <p class="card-text text-left"><small class="text-muted">
+		    <%= link_to comment.media %> </small></p>
+		
 		<%# if comment.commentable_type %>
 			<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#replyModal<%= comment.id %>">
 			 <i class="fa fa-share"></i> Reply
@@ -10,9 +14,13 @@
 			   <i class="fa fa-comments"></i> <%= comment.comments.count.to_s + ' Replies' %>
 			</a>
 		<%# end %>
-	  <p class="card-text text-right"><small class="text-muted">
-	    Posted <%= time_ago_in_words(comment.created_at) %> ago
-	  </small></p>
+		<div class="row no-gutters">
+			<div class="col-md-12">
+			  <p class="card-text text-right"><small class="text-muted">
+			    Posted <%= time_ago_in_words(comment.created_at) %> ago
+			  </small></p>
+			</div>
+		</div>
 	
 
 	
@@ -25,9 +33,10 @@
     <div class="modal-content">
 	      <div class="modal-body">
 	        <%= simple_form_for [comment, Comment.new] do |f| %>
-	        <div class="form-group">
+	        <%= f.input :author_name, :as => :hidden, :input_html=>{:value=> current_user.name } if user_signed_in? %>
+	        
 		      <%= f.input :body, :label=> 'Your Comment', placeholder: "Add a Reply", :class=>'form-control' %><br/>
-	      	</div>
+	      
 	      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
