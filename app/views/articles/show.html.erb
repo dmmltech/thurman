@@ -1,7 +1,6 @@
 <div class="row">
 <div class="col-md-8">
   <% breadcrumb :article, @article %>
-
   <h1 class="page-header"><%= @article.title %></h1>
   <div class="meta row">
     <div class="col-md-3">
@@ -19,6 +18,10 @@
   </div>
 
   <p><%= simple_format(@article.body) %></p>
+  <div class="sharebar">
+    <i class="fa fa-share"></i> Share this content: 
+    <%= social_share_button_tag(@article.title) %>
+  </div>
   <p>
     Tags:
     <% @article.tags.each do |tag| %>

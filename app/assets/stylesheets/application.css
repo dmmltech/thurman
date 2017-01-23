@@ -14,5 +14,6 @@
  *= require trix
  *= require jquery-ui
  *= require jquery.tagit.css
+ #= require social-share-button
  *= require_self
  */

@@ -16,5 +16,6 @@
 //= require jquery-ui
 //= require trix
 //= require tag-it
+//= require social-share-button
 //= require_tree .
 //= require turbolinks

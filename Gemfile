@@ -31,6 +31,8 @@ gem 'gretel'
 gem 'friendly_id', '~> 5.1.0'
 # gem 'thumbs_up'
 # gem 'bookmark_system'
+gem 'shareable'
+gem 'social-share-button'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
