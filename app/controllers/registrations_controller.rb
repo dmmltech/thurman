@@ -3,6 +3,10 @@ class RegistrationsController < Devise::RegistrationsController
 	# before_filter :configure_permitted_parameters, if: :devise_controller?
   protected
 
+    def account_update_params
+      params.require(:user).permit(:name, :email, :password, :avatar)
+    end
+
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
