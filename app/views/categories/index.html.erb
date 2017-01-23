@@ -12,7 +12,10 @@
 		</ul>
 
 		<%= will_paginate @categories, renderer: BootstrapPagination::Rails %>
-
-		<%= link_to "Add new category", new_category_path, :class=>'btn btn-primary' %>
+		<% if user_signed_in? %>
+			<% if can? :create, @category %>
+				<%= link_to "Add new category", new_category_path, :class=>'btn btn-primary' %>
+			<% end %>
+		<% end %>
 	</div>
 </div>

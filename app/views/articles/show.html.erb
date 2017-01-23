@@ -22,7 +22,9 @@
       <%= link_to tag.name, tag_path(tag) %>
     <% end %>
   </p>
-<%= link_to 'Logout', logout_path, :class=>'btn btn-success btn-sm pull-right' if user_signed_in? %>
+
+  <%= link_to 'Logout', logout_path, :class=>'btn btn-success btn-sm pull-right' if user_signed_in?  %>
+
 <%= link_to 'Login', login_path, :class=>'btn btn-success btn-sm pull-right' if !user_signed_in? %>
 <h4>Leave a Comment</h4>
 <hr/>
@@ -69,8 +71,14 @@
 
 <div class="col-md-4"><%= link_to "<< Back to Articles List", articles_path, :class=>'btn btn-success btn-block' %>
   <p class="text-center">
-    <%= link_to "Edit", edit_article_path(@article) %> | 
+  <% if user_signed_in? %>
+    <% if can? :update, @article %>
+      <%= link_to "Edit", edit_article_path(@article) %>
+    <% end %>  
+    <% if can? :delete, @article %>
     <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %> 
+    <% end %>
+  <% end %>
   </p>
   <p class="lead">Archives</p>
   <% @archives.sort.each do |month, archived| %>

@@ -12,6 +12,7 @@ class PagesController < ApplicationController
 
 	def new
 		@page = Page.new
+		authorize! :create, @page
 	end
 
 	def create
@@ -24,14 +25,15 @@ class PagesController < ApplicationController
 	  @page = Page.find(params[:id])
 	  @page.update!(page_params)
 	  flash.notice = "Page '#{@page.title}' Updated!"
-
 	  redirect_to page_path(@page)
+	  authorize! :update, @page
 	end
 
 	def destroy
 		@page = Page.find(params[:id])
 		@page.destroy
 		redirect_to pages_path
+		authorize! :delete, @page
 	end
 
 	private

@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  # resourcify
+  resourcify
   # before_save :ensure_one_root
   is_impressionable :counter_cache => true
   self.per_page = 10

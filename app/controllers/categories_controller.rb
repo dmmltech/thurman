@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
 
 	def new
 		@category = Category.new()
+		authorize! :create, @category
 	end
 
 	def create
@@ -24,21 +25,21 @@ class CategoriesController < ApplicationController
 
 	def edit
 	  @category = Category.find(params[:id])
+	  authorize! :update, @category
 	end
 
 	def update
 	  @category = Category.find(params[:id])
 	  @category.update(category_params)
 	  flash.notice = "'#{@category.name}' Updated!"
-
 	  redirect_to category_path(@category)
 	end
 
 	def destroy
 		@category = Category.find(params[:id])
 		@category.destroy
-		 
 		redirect_to categories_path
+		authorize! :delete, @category
 	end
 
 	private

@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  # resourcify
+  resourcify
   is_impressionable :counter_cache => true
   self.per_page = 10
   has_many :articles

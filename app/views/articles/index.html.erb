@@ -13,8 +13,11 @@
 		</ul>
 
 		<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
-
-		<%= link_to "Create a New Article", new_article_path, :class=>'btn btn-primary' %>
+		<% if user_signed_in? %>
+			<% if can? :create, @category %>
+				<%= link_to "Create a New Article", new_article_path, :class=>'btn btn-primary' %>
+			<% end %>
+		<% end %>
 	</div>
 </div>
 
