@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 		@comment = Comment.new
 		@comment.commentable_id = @article.id
-		impressionist(@article)
+		impressionist @article, '', :unique => [:controller_name, :action_name, :session_hash]
 	end
 
 

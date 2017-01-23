@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
   resourcify
-  is_impressionable :counter_cache => true
+  is_impressionable :counter_cache => true, :unique => [:session_hash]
   self.per_page = 10
   has_many :articles
   

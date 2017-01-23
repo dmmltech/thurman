@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
 
 	def show
 		@category = Category.find(params[:id])
-		impressionist(@category)
+		impressionist @category, '', :unique => [:controller_name, :action_name, :session_hash]
 	end
 
 

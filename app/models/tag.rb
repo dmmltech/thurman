@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
-	is_impressionable :counter_cache => true
+	is_impressionable :counter_cache => true, :unique => [:session_hash]
 	self.per_page = 10
 	
 	has_many :taggings

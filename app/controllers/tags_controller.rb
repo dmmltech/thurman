@@ -7,7 +7,7 @@ class TagsController < ApplicationController
 
 	def show
 	  @tag = Tag.find(params[:id])
-	  impressionist(@tag)
+	  impressionist @tag, '', :unique => [:controller_name, :action_name, :session_hash]
 	end
 
 end

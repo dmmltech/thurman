@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 
 	def show
 		@page = Page.find(params[:id])
-		impressionist(@page)
+		impressionist @page, '', :unique => [:controller_name, :action_name, :session_hash]
 	end
 
 	def new
