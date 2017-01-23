@@ -23,14 +23,14 @@ Rails.application.routes.draw do
 	
 	resources :pages, path: :page
 
-	# devise_for :users
+	devise_for :users
 
-	# devise_scope :user do
-	# 	match 'login' => 'devise/sessions#new', :via => 'get'
-	# 	match 'logout' => 'devise/sessions#destroy', :via => 'get'
-	# 	match 'register' => 'devise/registrations#new', :via => 'get'
-	# 	match 'manage-account' => 'devise/registrations#edit', :via => 'get'
-	# end
+	devise_scope :user do
+		match 'login' => 'devise/sessions#new', :via => 'get'
+		match 'logout' => 'devise/sessions#destroy', :via => 'get'
+		match 'register' => 'devise/registrations#new', :via => 'get'
+		match 'manage-account' => 'devise/registrations#edit', :via => 'get'
+	end
 
 
 end
