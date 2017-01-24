@@ -18,7 +18,7 @@ Ckeditor.setup do |config|
   # config.flash_file_types = %w(swf)
 
   # Allowed attachment file types for upload.
-  # Set to nil or [] (empty array) for all file types
+  #git add . Set to nil or [] (empty array) for all file types
   # By default: %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
   # config.attachment_file_types = %w(doc docx xls odt ods pdf rar zip tar tar.gz swf)
 
