@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123200833) do
+ActiveRecord::Schema.define(version: 20170124012223) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -39,6 +39,19 @@ ActiveRecord::Schema.define(version: 20170123200833) do
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["type"], name: "index_ckeditor_assets_on_type"
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -105,6 +118,19 @@ ActiveRecord::Schema.define(version: 20170123200833) do
   end
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id"
+
+  create_table "rich_rich_files", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "rich_file_file_name"
+    t.string   "rich_file_content_type"
+    t.integer  "rich_file_file_size"
+    t.datetime "rich_file_updated_at"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.text     "uri_cache"
+    t.string   "simplified_type",        default: "file"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

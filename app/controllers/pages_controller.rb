@@ -21,12 +21,16 @@ class PagesController < ApplicationController
 	    redirect_to page_path(@page)
 	end
 
+	def edit
+		@page = Page.find(params[:id])
+		authorize! :update, @page
+	end
+
 	def update
 	  @page = Page.find(params[:id])
 	  @page.update!(page_params)
 	  flash.notice = "Page '#{@page.title}' Updated!"
 	  redirect_to page_path(@page)
-	  authorize! :update, @page
 	end
 
 	def destroy

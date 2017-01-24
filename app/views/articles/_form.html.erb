@@ -1,4 +1,4 @@
-<%= simple_form_for(@article) do |f| %>
+<%= simple_form_for(@article, :html => {:multipart => true}) do |f| %>
   <ul>
     <% @article.errors.full_messages.each do |error| %>
       <li><%= error %></li>
@@ -7,8 +7,7 @@
   
     <%= f.input :title, :class=> 'form-control' %>
   
-    <%= f.label :body %>
-    <%= f.trix_editor :body  %>
+    <%= f.input :body, :as => :ckeditor %>
   
     <%= f.association :category, 
       label_method: :name, 

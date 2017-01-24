@@ -33,7 +33,9 @@ gem 'friendly_id', '~> 5.1.0'
 # gem 'bookmark_system'
 gem 'shareable'
 gem 'social-share-button'
-
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'ckeditor'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
