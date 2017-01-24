@@ -2,7 +2,7 @@ class Tag < ActiveRecord::Base
 	is_impressionable :counter_cache => true, :unique => [:session_hash]
 	self.per_page = 10
 	
-	has_many :taggings
+	has_many :taggings, :dependent => :destroy
 	has_many :articles, through: :taggings
 
 	extend FriendlyId
