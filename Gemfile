@@ -41,6 +41,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 gem "fog-aws"
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 group :development, :test do
   gem 'byebug'

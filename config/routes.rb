@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   
-  get 'sitemap/index'
-
 	root to: 'articles#index'
+	
+	mount Ckeditor::Engine => '/ckeditor'
+  
+  	get 'sitemap/index'
+
     match 'author' => 'articles#author', :via => 'get'
 	match 'archives' => 'articles#archives', :via => 'get'
 
