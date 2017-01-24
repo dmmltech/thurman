@@ -7,8 +7,7 @@
   
     <%= f.input :title, :class=> 'form-control' %>
   
-
-    <%= f.text_area :body, :class => 'ckeditor' %>
+    <%= f.input :body %>
   
     <%= f.association :category, 
       label_method: :name, 
