@@ -17,5 +17,10 @@
 //= require trix
 //= require tag-it
 //= require social-share-button
+//= require ckeditor-jquery
 //= require_tree .
 //= require turbolinks
+
+$('.ckeditor').ckeditor({
+  // optional config
+});
