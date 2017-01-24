@@ -17,6 +17,5 @@
 //= require trix
 //= require tag-it
 //= require social-share-button
-//= require ckeditor/init
 //= require_tree .
 //= require turbolinks
