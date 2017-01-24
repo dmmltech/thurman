@@ -1,6 +1,7 @@
 <div class="row">
 <div class="col-md-8">
   <% breadcrumb :article, @article %>
+  <%= image_tag @article.image, :class=> 'img-responsive img-thumbnail' %>
   <h1 class="page-header"><%= @article.title %></h1>
   <div class="meta row">
     <div class="col-md-3">

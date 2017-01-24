@@ -7,7 +7,7 @@
   
     <%= f.input :title, :class=> 'form-control' %>
   
-    <%= f.input :body, :as => :ckeditor %>
+    <%= f.input :body, :as => :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
   
     <%= f.association :category, 
       label_method: :name, 
@@ -16,6 +16,7 @@
       :class=>"form-control" 
     %>
 
+    <%= f.input :image %>
   
     <%= f.input :status, 
         collection: status_options,

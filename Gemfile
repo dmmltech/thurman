@@ -41,6 +41,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
+gem "fog-aws"
 
 group :development, :test do
   gem 'byebug'

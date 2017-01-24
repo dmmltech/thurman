@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+	mount_uploader :image, ImageUploader
 	resourcify
 	is_impressionable :counter_cache => true, :unique => [:session_hash]
 	belongs_to :user

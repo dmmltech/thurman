@@ -6,9 +6,10 @@
   </ul>
     <%= f.input :title, :class=> 'form-control' %>
   
-    <%= f.input :body, :as => :ckeditor  %>
+    <%= f.input :body, :as => :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
   
- 
+    <%= f.input :image %>
+    
     <%= f.input :parent, 
         :label=> 'Parent Page',
         collection: Page.all,

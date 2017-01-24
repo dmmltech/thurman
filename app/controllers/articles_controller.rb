@@ -74,7 +74,8 @@ class ArticlesController < ApplicationController
 	  	:status,
 	  	:published_at,
 	  	:visibility,
-	  	:user_id
+	  	:user_id,
+	  	:image
 	  	)
 	end
 

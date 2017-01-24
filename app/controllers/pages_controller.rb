@@ -51,7 +51,8 @@ class PagesController < ApplicationController
 		:status,
 		:order,
 		:parent_id,
-		:counter_cache
+		:counter_cache,
+		:image
 	  	)
 	end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124012223) do
+ActiveRecord::Schema.define(version: 20170124020143) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170124012223) do
     t.string   "status"
     t.string   "visibility"
     t.integer  "user_id"
+    t.string   "image"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
@@ -115,6 +116,7 @@ ActiveRecord::Schema.define(version: 20170124012223) do
     t.datetime "updated_at",                    null: false
     t.integer  "impressions_count", default: 0
     t.string   "visibility"
+    t.string   "image"
   end
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id"

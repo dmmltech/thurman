@@ -1,4 +1,5 @@
 class Page < ActiveRecord::Base
+  mount_uploader :image, ImageUploader
   resourcify
   # before_save :ensure_one_root
   is_impressionable :counter_cache => true, :unique => [:session_hash]
