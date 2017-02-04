@@ -1,10 +1,10 @@
+== README
+
 [![Code Climate](https://codeclimate.com/github/dmmltech/thurman/badges/gpa.svg)](https://codeclimate.com/github/dmmltech/thurman)
 
-[![Issue Count](https://codeclimate.com/github/dmmltech/thurman/badges/issue_count.svg)](https://codeclimate.com/github/dmmltech/thurman)
 
 [![Test Coverage](https://codeclimate.com/github/dmmltech/thurman/badges/coverage.svg)](https://codeclimate.com/github/dmmltech/thurman/coverage)
 
-== README
 
 # Thurman
 ## starter app for publishing articles with rails
@@ -34,7 +34,7 @@ Thurman is a starter app that I built to speed up development on projects that n
 - Editorial calendar
 - Social publishing
 - Newsletter subscription
-- 
+
 ###### Other todos
 - Installation and setup instructions
 - Documentation
