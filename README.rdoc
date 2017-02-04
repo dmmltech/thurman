@@ -1,28 +1,43 @@
+[![Code Climate](https://codeclimate.com/github/dmmltech/thurman/badges/gpa.svg)](https://codeclimate.com/github/dmmltech/thurman)
+
+[![Issue Count](https://codeclimate.com/github/dmmltech/thurman/badges/issue_count.svg)](https://codeclimate.com/github/dmmltech/thurman)
+
+[![Test Coverage](https://codeclimate.com/github/dmmltech/thurman/badges/coverage.svg)](https://codeclimate.com/github/dmmltech/thurman/coverage)
+
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Thurman
+## starter app for publishing articles with rails
 
-Things you may want to cover:
+Thurman is a starter app that I built to speed up development on projects that need blogging enabled without having to worry about multiple platforms.  All features and stylings are pretty basic to allow for maximum flexibility. 
 
-* Ruby version
+###### Current Features
+-  Scheduled Posts
+- Commenting system
+- Multi-level categories
+- Tagging
+- Dynamic pages
+- Archive page
+- Author page
+- Multiple authors
+- Authentication and authorization (Devise, CanCanCan, Rolify)
+- Social sharing (social-share-button)
+- Autosuggestions (Tag-It)
+- S3 media uploads (Carrierwave)
+- Breadcrumbs (Gretel)
+- View Tracking (Impressionist)
+- Friendly urls (Friendly_id)
+- Editor (Ckeditor)
 
-* System dependencies
+###### Planned Features
+- Page layouts
+- Editorial calendar
+- Social publishing
+- Newsletter subscription
+- 
+###### Other todos
+- Installation and setup instructions
+- Documentation
+- Demo site
+- Showcase
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
