@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-	before_action :authenticate_user!, :only => [:new,:edit]
+	before_action :authenticate_user!, :only => [:new,:edit,:create,:update,:destroy,:delete]
 	
 	def index
 	  @articles = Article.where(status: 'Published').where(visibility: 'Public').paginate(:page => params[:page])
@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new()
-		authorize! :create, @article
+		# authorize! :create, @article
 	end
 
 	def create
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
 
 	def edit
 	  @article = Article.find(params[:id])
-	  authorize! :update, @article
+	  # authorize! :update, @article
 	end
 
 	def update
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 		@article.destroy
 		redirect_to articles_path
-		authorize! :delete, @article
+		# authorize! :delete, @article
 	end
 
 	def archives

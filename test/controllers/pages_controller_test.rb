@@ -1,10 +1,10 @@
 require 'test_helper'
 
-class CategoriesControllerTest < ActionController::TestCase
-  include Devise::Test::ControllerHelpers
+class PagesControllerTest < ActionController::TestCase
+include Devise::Test::ControllerHelpers
 
-	def setup
-		@category = categories(:dad)
+  def setup
+		@page = pages(:page)
 	end
 
 
@@ -13,8 +13,8 @@ class CategoriesControllerTest < ActionController::TestCase
 		assert_response :success
 	end
 
-	test "should show the category" do
-		get :show, id: @category
+	test "should show the page" do
+		get :show, id: @page
 		assert_response :success
 	end
 
@@ -24,7 +24,7 @@ class CategoriesControllerTest < ActionController::TestCase
 	end
 
 	test "should redirect visitor on edit" do
-		get :edit, id: @category
+		get :edit, id: @page
 		assert_redirected_to new_user_session_path
 	end
 end

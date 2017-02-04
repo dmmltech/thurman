@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  include Devise::Test::ControllerHelpers
+
+  def setup
+		@comment = comments(:first)
+	end
 end

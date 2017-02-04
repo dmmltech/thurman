@@ -45,16 +45,25 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 
 group :development, :test do
   gem 'byebug'
+  gem 'minitest-reporters', '1.0.8'
+  gem 'mini_backtrace',     '0.1.3'
+  gem 'guard'
+  gem 'guard-minitest',     '2.3.2'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'sqlite3'
+  gem "better_errors"
+  gem 'pry'
+  # gem "rails-erd"
+  gem 'awesome_print', :require => 'ap'
 end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'heroku-deflater'
 end
 

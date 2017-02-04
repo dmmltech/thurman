@@ -101,7 +101,7 @@
   <% end %>
 
   <p class="lead">Categories</p>
- <!--  <% @categories.sort.each do |category, posts| %>
+  <% @categories.sort.each do |category, posts| %>
     <h4><%= category%></h4>
    <ul class="list-unstyled" >
         <% for post in posts %>
@@ -111,16 +111,16 @@
         <% end %>
       </ul> 
   <% end %>
- -->
 
-<% @categories do |category| %>
-  <h4><%= category %></h4>
+
+<%# @categories.each do |category| %>
+  <!-- <h4><%# category %></h4>
    <ul class="list-unstyled" >
       <li>
-       <i class="fa fa-file-text-o"></i> <%= link_to "#{category.name}", category_path(category) %>
+       <i class="fa fa-file-text-o"></i> <%# link_to "#{category.name}", category_path(category) %>
       </li>
-  </ul> 
-<% end %>
+  </ul>  -->
+<%# end %>
 
 </div>
 </div>
