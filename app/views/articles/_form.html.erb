@@ -16,7 +16,7 @@
       :class=>"form-control" 
     %>
 
-    <%= f.input :image %>
+    <%= f.input :image, as: :file %>
   
     <%= f.input :status, 
         collection: status_options,
