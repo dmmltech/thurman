@@ -49,6 +49,8 @@ group :development, :test do
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard'
   gem 'guard-minitest',     '2.3.2'
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
 end
 
 group :development do

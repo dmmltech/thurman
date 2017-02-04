@@ -3,6 +3,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require "minitest/reporters"
 Minitest::Reporters.use!
+require "simplecov"
+SimpleCov.start
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -10,3 +12,6 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+# https://mattbrictson.com/strict-validations-minitest-and-shoulda
+# https://mattbrictson.com/minitest-and-rails
