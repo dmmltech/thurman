@@ -8,8 +8,9 @@
 Thurman is a starter app that I built to speed up development on projects that need blogging enabled without having to worry about multiple platforms.  All features and stylings are pretty basic to allow for maximum flexibility. 
 
 ###### Current Features
--  Scheduled Posts
-- Commenting system
+- Scheduled Posts
+- Post to Twitter
+- Multi-level commenting system
 - Multi-level categories
 - Tagging
 - Dynamic pages
