@@ -34,6 +34,9 @@
         input_html: { class: 'chosen-select form-control' }  
         %>
 
+    <%= check_box_tag 'twitter', 'Yes' %> Post to Twitter?
+    <%= text_field_tag 'tweet', 'Enter your tweet here' %>
+
   <%= f.input :user_id, :as => :hidden, :input_html=>{:value=> current_user.id} if user_signed_in? %>
 
   
