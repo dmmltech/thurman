@@ -83,7 +83,7 @@ class ArticlesController < ApplicationController
 
 	def publish_to_twitter?
 		if params[:twitter] == 'Yes'
-			current_user.tweet(params[:tweet])
+			params[:tweet] != ''  ? current_user.tweet(params[:tweet]) : current_user.tweet(@article.title + ' via ' + article_url(@article))
 		end
 	end
 
