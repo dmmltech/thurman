@@ -109,6 +109,7 @@ class ArticlesController < ApplicationController
 		@articles = get_scheduled_articles
 		@articles.each do |article|
 			article.publish_now
+			article.user.tweet(@article.title + ' via ' + article_url(@article))
 		end
 	end
 end

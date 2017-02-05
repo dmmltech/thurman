@@ -77,8 +77,10 @@ class Article < ActiveRecord::Base
 	def self.publish_scheduled
 		@articles = scheduled_posts
 		@articles.each do |article|
+			user = User.find(article.user_id)
 			article.status = 'Published'
 			article.save
+			user.tweet(article.title )
 		end
 	end
 
