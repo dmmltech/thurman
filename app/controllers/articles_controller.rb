@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
 	def create
 	  @article = Article.new(article_params)
 	  @article.save
+	  publish_to_twitter?
 	  redirect_to article_path(@article)
 	end
 
@@ -35,6 +36,7 @@ class ArticlesController < ApplicationController
 	def update
 	  @article = Article.find(params[:id])
 	  @article.update!(article_params)
+	  publish_to_twitter?
 	  flash.notice = "Article '#{@article.title}' Updated!"
 
 	  redirect_to article_path(@article)
@@ -77,6 +79,12 @@ class ArticlesController < ApplicationController
 	  	:user_id,
 	  	:image
 	  	)
+	end
+
+	def publish_to_twitter?
+		if @article.status == 'Published'
+			current_user.tweet(@article.title + ' - via ' + article_url(@article))
+		end
 	end
 
 	def get_articles_by_month

@@ -43,7 +43,6 @@ gem 'rolify'
 gem "fog-aws"
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'twitter', '~> 5.3.1'
-gem 'omniauth-twitter', '~> 1.0.1'
 gem "figaro"
 
 group :development, :test do
