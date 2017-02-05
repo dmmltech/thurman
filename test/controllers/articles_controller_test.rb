@@ -7,7 +7,6 @@ include Devise::Test::ControllerHelpers
 		@article = articles(:one)
 	end
 
-
 	test "should get index" do
 		get :index
 		assert_response :success

@@ -10,6 +10,9 @@ class PagesController < ApplicationController
 		impressionist @page, '', :unique => [:controller_name, :action_name, :session_hash]
 	end
 
+	def tweeter
+	end
+
 	def new
 		@page = Page.new
 		authorize! :create, @page

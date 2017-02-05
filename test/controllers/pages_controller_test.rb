@@ -7,7 +7,6 @@ include Devise::Test::ControllerHelpers
 		@page = pages(:page)
 	end
 
-
 	test "should get index" do
 		get :index
 		assert_response :success

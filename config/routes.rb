@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  
+    get 'auth/:provider/callback', to: 'sessions#create'
+    get 'auth/failure', to: redirect('/')
+    resources :tweets, only: [:new, :create]
+
 	root to: 'articles#index'
 	
 	mount Ckeditor::Engine => '/ckeditor'
@@ -8,6 +11,7 @@ Rails.application.routes.draw do
 
     match 'author' => 'articles#author', :via => 'get'
 	match 'archives' => 'articles#archives', :via => 'get'
+	match 'tweeter' => 'pages#tweeter', :via => 'get'
 
 
 	get 'feed' => 'articles#feed'

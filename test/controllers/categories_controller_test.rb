@@ -7,7 +7,6 @@ class CategoriesControllerTest < ActionController::TestCase
 		@category = categories(:dad)
 	end
 
-
 	test "should get index" do
 		get :index
 		assert_response :success

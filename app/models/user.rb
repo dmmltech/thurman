@@ -21,4 +21,16 @@ class User < ActiveRecord::Base
 	def should_generate_new_friendly_id?
 		slug.blank? || name_changed?
 	end
+
+  def tweet(tweet)
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["twitter_key"]
+      config.consumer_secret     = ENV["twitter_secret"]
+      config.access_token        = ENV["access_token"]
+      config.access_token_secret = ENV["access_token_secret"]
+    end
+
+    client.update(tweet)
+  end
+
 end
