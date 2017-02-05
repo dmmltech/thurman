@@ -31,14 +31,14 @@ class Article < ActiveRecord::Base
 	   body.split.size
 	end
 
-	 def reading_time
-	 time =  (word_count / 275.0)
-		 if time < 1
-		 	return 'Under 1 min read'
-		 else
-		 	return ((word_count / 275.0).ceil).to_s + ' min read'
-		 end
-	 end 
+	def reading_time
+		time =  (word_count / 275.0)
+		if time < 1
+			return 'Under 1 min read'
+		else
+			return ((word_count / 275.0).ceil).to_s + ' min read'
+		end
+	end 
 
 	def tag_list
 	  tags.join(", ")

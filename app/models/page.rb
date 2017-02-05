@@ -12,12 +12,12 @@ class Page < ActiveRecord::Base
     friendly_id :slug_candidates, :use => [:slugged,:history, :finders]
 
     def slug_candidates
-    slugger = rand(1..100)
-    [
-      [:title],
-      [:title, slugger]
-    ]
-  end
+      slugger = rand(1..100)
+      [
+        [:title],
+        [:title, slugger]
+      ]
+    end
 
   def should_generate_new_friendly_id?
     slug.blank? || title_changed?
