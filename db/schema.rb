@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205203500) do
+ActiveRecord::Schema.define(version: 20170205211316) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -156,8 +156,10 @@ ActiveRecord::Schema.define(version: 20170205203500) do
     t.datetime "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
   end
 
+  add_index "shortened_urls", ["category"], name: "index_shortened_urls_on_category"
   add_index "shortened_urls", ["owner_id", "owner_type"], name: "index_shortened_urls_on_owner_id_and_owner_type"
   add_index "shortened_urls", ["unique_key"], name: "index_shortened_urls_on_unique_key", unique: true
   add_index "shortened_urls", ["url"], name: "index_shortened_urls_on_url"
