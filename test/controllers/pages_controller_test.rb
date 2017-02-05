@@ -3,7 +3,7 @@ require 'test_helper'
 class PagesControllerTest < ActionController::TestCase
 include Devise::Test::ControllerHelpers
 
-  def setup
+	def setup
 		@page = pages(:page)
 	end
 

@@ -58,6 +58,7 @@ group :development do
   gem 'spring'
   gem 'sqlite3'
   gem "better_errors"
+  gem 'reek'
   gem 'pry'
   # gem "rails-erd"
   gem 'awesome_print', :require => 'ap'

@@ -1,6 +1,4 @@
 [![Code Climate](https://codeclimate.com/github/dmmltech/thurman/badges/gpa.svg)](https://codeclimate.com/github/dmmltech/thurman)
-
-
 [![Test Coverage](https://codeclimate.com/github/dmmltech/thurman/badges/coverage.svg)](https://codeclimate.com/github/dmmltech/thurman/coverage)
 
 
