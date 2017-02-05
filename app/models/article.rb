@@ -77,10 +77,11 @@ class Article < ActiveRecord::Base
 	def self.publish_scheduled
 		@articles = scheduled_posts
 		@articles.each do |article|
-			user = User.find(article.user_id)
+			# user = User.find(article.user_id)
+			# url = Rails.application.routes.url_helpers.article_path(article)
 			article.status = 'Published'
 			article.save
-			user.tweet(article.title )
+			article.user.tweet(article.title + ' via ' + Rails.application.routes.url_helpers.article_url(article))
 		end
 	end
 
