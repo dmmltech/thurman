@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 9ef68325dd5ea465b4d340af9a9def10934cd677
-  specs:
-    carrierwave (1.0.0)
-      activemodel (>= 4.0.0)
-      activesupport (>= 4.0.0)
-      mime-types (>= 1.16)
-
-GIT
   remote: git://github.com/galetahub/ckeditor.git
   revision: 11d3a5b905646c6fd397f7710f95fb9eb29f0865
   specs:
@@ -74,6 +65,10 @@ GEM
     builder (3.2.3)
     byebug (9.0.6)
     cancancan (1.15.0)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -350,7 +345,7 @@ DEPENDENCIES
   better_errors
   byebug
   cancancan
-  carrierwave!
+  carrierwave (~> 1.0)
   ckeditor!
   codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.1.0)
