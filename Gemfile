@@ -40,7 +40,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
-gem "fog-aws"
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'twitter', '~> 5.3.1'
 gem "figaro"
@@ -71,5 +70,6 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
   gem 'heroku-deflater'
+  gem "fog-aws"
 end
 
