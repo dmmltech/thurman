@@ -2,7 +2,7 @@ module ApplicationHelper
 
 	def gravatar_url(email, size)
 		gravatar = Digest::MD5::hexdigest(email).downcase
-		return url = "http://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
+		return "http://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
 	end
 
 	def auto_suggestions(*)
@@ -20,20 +20,20 @@ module ApplicationHelper
 
 	def site_author(page_author = '')
 		base_author = "Team Thurman"
-	    if page_author.empty?
-	      base_author
-	    else
-	      "#{page_author} | #{base_author}"
-	    end
+		if page_author.empty?
+		  base_author
+		else
+		  "#{page_author} | #{base_author}"
+		end
 	end
 
 	def site_title(page_title = '')
-	    base_title = "Thurman"
-	    if page_title.empty?
-	      base_title
-	    else
-	      "#{page_title} | #{base_title}"
-	    end
+		base_title = "Thurman"
+		if page_title.empty?
+		  base_title
+		else
+		  "#{page_title} | #{base_title}"
+		end
 	end
 
 	def site_tagline(page_tagline = '')
@@ -111,16 +111,16 @@ module ApplicationHelper
 	end
 
 	def resource_name
-	    :user
-	  end
+		:user
+	end
 
-	  def resource
-	    @resource ||= User.new
-	  end
+	def resource
+		@resource ||= User.new
+	end
 
-	  def devise_mapping
-	    @devise_mapping ||= Devise.mappings[:user]
-	  end
+	def devise_mapping
+		@devise_mapping ||= Devise.mappings[:user]
+	end
 
 
 end

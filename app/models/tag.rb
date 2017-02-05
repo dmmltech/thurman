@@ -8,7 +8,7 @@ class Tag < ActiveRecord::Base
 	extend FriendlyId
     friendly_id :slug_candidates, :use => [:slugged,:history, :finders]
 
-    def slug_candidates
+	def slug_candidates
 		slugger = rand(1..100)
 		[
 			[:name],
