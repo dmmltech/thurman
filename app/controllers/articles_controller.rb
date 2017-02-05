@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
 	def create
 	  @article = Article.new(article_params)
 	  @article.save
+
 	  publish_to_twitter?
 	  redirect_to article_path(@article)
 	end
@@ -37,9 +38,12 @@ class ArticlesController < ApplicationController
 	  @article = Article.find(params[:id])
 	  @article.update!(article_params)
 	  publish_to_twitter?
-	  flash.notice = "Article '#{@article.title}' Updated!"
-
 	  redirect_to article_path(@article)
+	  flash.notice = "Article '#{@article.title}' Updated!"
+	rescue Twitter::Error => e
+	  flash.notice = "Twitter status not sent-#{e.message}"
+	  redirect_to article_path(@article)
+	  
 	end
 
 	def destroy
