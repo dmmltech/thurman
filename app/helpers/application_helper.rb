@@ -2,10 +2,10 @@ module ApplicationHelper
 
 	def gravatar_url(email, size)
 		gravatar = Digest::MD5::hexdigest(email).downcase
-		url = "http://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
+		return url = "http://gravatar.com/avatar/#{gravatar}.png?s=#{size}"
 	end
 
-	def auto_suggestions(context)
+	def auto_suggestions(*)
 		seeds = Tagging.includes(:tag).uniq.pluck(:name)
 		return seeds
 	end
@@ -38,10 +38,10 @@ module ApplicationHelper
 
 	def site_tagline(page_tagline = '')
 		base_tagline = "The Developer's Publishing Platform"
-		 if page_tagline.empty?
-		  base_tagline
+		if page_tagline.empty?
+			base_tagline
 		else
-		  "#{page_tagline} | #{base_tagline}"
+			"#{page_tagline} | #{base_tagline}"
 		end
 	end
 
