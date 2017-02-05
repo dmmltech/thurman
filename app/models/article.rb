@@ -77,11 +77,10 @@ class Article < ActiveRecord::Base
 	def self.publish_scheduled
 		@articles = scheduled_posts
 		@articles.each do |article|
-			# user = User.find(article.user_id)
-			# url = Rails.application.routes.url_helpers.article_path(article)
+			short = Shortener::ShortenedUrl.generate(Rails.application.routes.url_helpers.article_url(article)).unique_key
 			article.status = 'Published'
 			article.save
-			article.user.tweet(article.title + ' via ' + Rails.application.routes.url_helpers.article_url(article))
+			article.user.tweet(article.title + ' via ' + Rails.application.routes.url_helpers.root_url + short)
 		end
 	end
 

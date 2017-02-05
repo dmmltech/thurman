@@ -272,6 +272,8 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     shellany (0.0.1)
+    shortener (0.5.5)
+      rails (>= 3.0.7)
     simple_form (3.4.0)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -375,6 +377,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   shareable
+  shortener
   simple_form
   simplecov
   social-share-button

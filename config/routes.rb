@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 	match 'archives' => 'articles#archives', :via => 'get'
 	match 'tweeter' => 'pages#tweeter', :via => 'get'
 
-
 	get 'feed' => 'articles#feed'
 
     get 'sitemap', :to => 'sitemap#index', :defaults => {:format => 'xml'}
@@ -40,6 +39,8 @@ Rails.application.routes.draw do
 		match 'register' => 'devise/registrations#new', :via => 'get'
 		match 'manage-account' => 'devise/registrations#edit', :via => 'get'
 	end
+
+	get '/:id' => "shortener/shortened_urls#show"
 
 
 end

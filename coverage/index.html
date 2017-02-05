@@ -14,14 +14,14 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-02-05T00:58:20-06:00">2017-02-05T00:58:20-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-02-05T11:30:55-06:00">2017-02-05T11:30:55-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">78.29%</span></span>
+    (<span class="covered_percent"><span class="red">78.05%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>54</b> files in total.
-    <b>645</b> relevant lines. 
+    <b>647</b> relevant lines. 
     <span class="green"><b>505</b> lines covered</span> and
-    <span class="red"><b>140</b> lines missed </span>
+    <span class="red"><b>142</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,11 +62,11 @@
       
       <tr>
         <td class="strong"><a href="#1821cd402a30e672cc6613311b8fc19bea1cfdfe" class="src_link" title="app/controllers/articles_controller.rb">app/controllers/articles_controller.rb</a></td>
-        <td class="red strong">72.41 %</td>
-        <td>116</td>
-        <td>58</td>
+        <td class="red strong">71.19 %</td>
+        <td>117</td>
+        <td>59</td>
         <td>42</td>
-        <td>16</td>
+        <td>17</td>
         <td>0.8</td>
       </tr>
       
@@ -152,11 +152,11 @@
       
       <tr>
         <td class="strong"><a href="#fd8777c0809d04f19ce17c5d726429fac7d5450e" class="src_link" title="app/models/article.rb">app/models/article.rb</a></td>
-        <td class="red strong">70.83 %</td>
-        <td>85</td>
-        <td>48</td>
+        <td class="red strong">69.39 %</td>
+        <td>88</td>
+        <td>49</td>
         <td>34</td>
-        <td>14</td>
+        <td>15</td>
         <td>0.9</td>
       </tr>
       
@@ -789,11 +789,11 @@
         <div class="source_table" id="1821cd402a30e672cc6613311b8fc19bea1cfdfe">
   <div class="header">
     <h3>app/controllers/articles_controller.rb</h3>
-    <h4><span class="red">72.41 %</span> covered</h4>
+    <h4><span class="red">71.19 %</span> covered</h4>
     <div>
-      <b>58</b> relevant lines. 
+      <b>59</b> relevant lines. 
       <span class="green"><b>42</b> lines covered</span> and
-      <span class="red"><b>16</b> lines missed.</span>
+      <span class="red"><b>17</b> lines missed.</span>
     </div>
   </div>
   
@@ -1313,7 +1313,7 @@
         <li class="missed" data-hits="0" data-linenumber="86">
           
           
-          <code class="ruby">			current_user.tweet(params[:tweet])</code>
+          <code class="ruby">			params[:tweet] != &#39;&#39;  ? current_user.tweet(params[:tweet]) : current_user.tweet(@article.title + &#39; via &#39; + article_url(@article))</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="87">
@@ -1466,31 +1466,37 @@
           <code class="ruby">			article.publish_now</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="112">
+        <li class="missed" data-hits="0" data-linenumber="112">
           
           
-          <code class="ruby">		end</code>
+          <code class="ruby">			article.user.tweet(@article.title + &#39; via &#39; + article_url(@article))</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="113">
           
           
-          <code class="ruby">	end</code>
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="114">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="115">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="116">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="117">
           
           
           <code class="ruby"></code>
@@ -3255,11 +3261,11 @@
         <div class="source_table" id="fd8777c0809d04f19ce17c5d726429fac7d5450e">
   <div class="header">
     <h3>app/models/article.rb</h3>
-    <h4><span class="red">70.83 %</span> covered</h4>
+    <h4><span class="red">69.39 %</span> covered</h4>
     <div>
-      <b>48</b> relevant lines. 
+      <b>49</b> relevant lines. 
       <span class="green"><b>34</b> lines covered</span> and
-      <span class="red"><b>14</b> lines missed.</span>
+      <span class="red"><b>15</b> lines missed.</span>
     </div>
   </div>
   
@@ -3740,37 +3746,55 @@
           <code class="ruby">		@articles.each do |article|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="80">
+        <li class="never" data-hits="" data-linenumber="80">
+          
+          
+          <code class="ruby">			# user = User.find(article.user_id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="81">
+          
+          
+          <code class="ruby">			# url = Rails.application.routes.url_helpers.article_path(article)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="82">
           
           
           <code class="ruby">			article.status = &#39;Published&#39;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="81">
+        <li class="missed" data-hits="0" data-linenumber="83">
           
           
           <code class="ruby">			article.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="82">
+        <li class="missed" data-hits="0" data-linenumber="84">
+          
+          
+          <code class="ruby">			article.user.tweet(article.title + &#39; via &#39; + Rails.application.routes.url_helpers.article_url(article))</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
           
           
           <code class="ruby">		end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="83">
+        <li class="never" data-hits="" data-linenumber="86">
           
           
           <code class="ruby">	end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="84">
+        <li class="never" data-hits="" data-linenumber="87">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="85">
+        <li class="never" data-hits="" data-linenumber="88">
           
           
           <code class="ruby">end</code>

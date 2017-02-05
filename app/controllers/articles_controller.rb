@@ -83,7 +83,8 @@ class ArticlesController < ApplicationController
 
 	def publish_to_twitter?
 		if params[:twitter] == 'Yes'
-			params[:tweet] != ''  ? current_user.tweet(params[:tweet]) : current_user.tweet(@article.title + ' via ' + article_url(@article))
+			url = Shortener::ShortenedUrl.generate(article_url(@article)).unique_key
+			params[:tweet] != ''  ? current_user.tweet(params[:tweet]) : current_user.tweet(@article.title + ' via ' + root_url + url)
 		end
 	end
 
@@ -109,7 +110,7 @@ class ArticlesController < ApplicationController
 		@articles = get_scheduled_articles
 		@articles.each do |article|
 			article.publish_now
-			article.user.tweet(@article.title + ' via ' + article_url(@article))
+			article.user.tweet(@article.title + ' via ' + root_url + Shortener::ShortenedUrl.generate(article_url(@article)).unique_key)
 		end
 	end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124020143) do
+ActiveRecord::Schema.define(version: 20170205182249) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -144,6 +144,21 @@ ActiveRecord::Schema.define(version: 20170124020143) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "shortened_urls", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.string   "owner_type", limit: 20
+    t.text     "url",                               null: false
+    t.string   "unique_key", limit: 10,             null: false
+    t.integer  "use_count",             default: 0, null: false
+    t.datetime "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shortened_urls", ["owner_id", "owner_type"], name: "index_shortened_urls_on_owner_id_and_owner_type"
+  add_index "shortened_urls", ["unique_key"], name: "index_shortened_urls_on_unique_key", unique: true
+  add_index "shortened_urls", ["url"], name: "index_shortened_urls_on_url"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
