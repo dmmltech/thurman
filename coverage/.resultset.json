@@ -80,6 +80,7 @@
         1,
         0,
         0,
+        0,
         null,
         null,
         null,
@@ -1141,6 +1142,7 @@
         0,
         null,
         null,
+        null,
         null
       ],
       "/Users/dominic/workspace/Thurman/test/controllers/categories_controller_test.rb": [
@@ -1692,6 +1694,7 @@
         1,
         0,
         0,
+        null,
         0,
         0,
         null,
@@ -1706,8 +1709,11 @@
         1,
         1,
         1,
-        null,
         1,
+        null,
+        0,
+        0,
+        null,
         null,
         null,
         1,
@@ -2099,6 +2105,6 @@
         null
       ]
     },
-    "timestamp": 1486326955
+    "timestamp": 1486338978
   }
 }

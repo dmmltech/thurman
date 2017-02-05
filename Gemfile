@@ -41,7 +41,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 gem 'ckeditor', github: 'galetahub/ckeditor'
-gem 'twitter', '~> 5.3.1'
+gem 'twitter'
 gem "figaro"
 gem 'shortener'
 
