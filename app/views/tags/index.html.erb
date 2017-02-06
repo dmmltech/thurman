@@ -1,16 +1,17 @@
 <div class="row">
 	<div class="col-md-8 offset-md-2 col-xs-12">
 		<% breadcrumb :tags, @tags %>
-
 		<h1><%= site_title %> Tags</h1>
-
-		<ul class="tags">
-		  <% @tags.each do |tag| %>
-		    <li>
-		      <%= link_to tag.name, tag_path(tag) %>
-		    </li>
-		  <% end %>
-		</ul>
+		<div class="row tags">
+			<% @tags.each do |tag| %>
+				<div class="col-12 col-md-auto">
+				  <%= link_to tag_path(tag) do %>
+				  	<%= tag.name %> 
+				  	(<%= tag.articles.where(status: 'Published').where(visibility: 'Public').count %>)
+				  <% end %>
+				</div>
+			<% end %>
+		</div>
 
 		<%= will_paginate @tags, renderer: BootstrapPagination::Rails %>
 	</div>
