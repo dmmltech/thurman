@@ -20,7 +20,7 @@
   
      <%= f.input :status, 
         collection: status_options,
-        selected: 'Draft', 
+        selected: @page.status? ? @page.status : 'Draft', 
         input_html: { class: 'chosen-select form-control' }  
         %>
   

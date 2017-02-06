@@ -1,10 +1,27 @@
-<div class="row text-center">
+<div class="text-justify">
 	<div class="col-md-8 offset-md-2">
-     <% breadcrumb :page, @page %>
+     <%# breadcrumb :page, @page %>
+     <article class="post page">
         <%= image_tag @page.image, :class=> 'img-responsive img-thumbnail' %>
-		<h1><%= @page.title %></h1>
+		<h1 class="post-title"><%= @page.title %></h1>
 		<div class="single-spacing">
 			<%= simple_format(@page.body) %>
 		</div>
+	 </article>
+
+	<div class="footer-widget widget">
+	 <hr/>
+	  <p class="text-center">
+		  <% if user_signed_in? %>
+		    <% if can? :update, @page %>
+		      <%= link_to "Edit", edit_page_path(@page) %>
+		    <% end %>  
+		    <% if can? :delete, @page %>
+		    <%= link_to "Delete", page_path(@page), method: :delete, data: {confirm: "Really delete the page?"} %> 
+		    <% end %>
+		  <% end %>
+	  </p>
+	</div>
+
 	</div>
 </div>

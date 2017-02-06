@@ -7,7 +7,7 @@
 	<ul class="list-unstyled" >
 		<li>
 		 <i class="fa fa-folder-open-o"></i> <span class="lead"><%= link_to category.name, category_path(category) %></span>
-		 (<%= category.articles.count %>)
+		 (<%= category.articles.where(status: 'Published').where(visibility:'Public').count %>)
 		</li>
 	</ul> 
 	<% end %>

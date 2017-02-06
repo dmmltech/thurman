@@ -65,6 +65,14 @@
 	line-height:2em;
 	font-size:1.1em;
 
+	&.page{
+		font-size:1.4rem;
+	}
+
+	img{
+		margin:48px 0;
+	}
+
 	.post-title{
 		text-transform:capitalize;
 	}
