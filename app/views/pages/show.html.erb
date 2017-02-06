@@ -3,6 +3,8 @@
      <% breadcrumb :page, @page %>
         <%= image_tag @page.image, :class=> 'img-responsive img-thumbnail' %>
 		<h1><%= @page.title %></h1>
-		<p><%= (@page.body).html_safe %></p>
+		<div class="single-spacing">
+			<%= simple_format(@page.body).html_safe %>
+		</div>
 	</div>
 </div>
