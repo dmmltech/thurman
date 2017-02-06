@@ -1,21 +1,21 @@
 <div class="row">
 	<div class="col-md-8 offset-md-2 col-xs-12">
-		<% breadcrumb :articles, @articles %>
+		<% breadcrumb :articles, @articles, :style => :bootstrap %>
 		
-		<h1><%= site_title %>  Articles</h1>
+		<h1 class="text-center"><%= site_title %>  Articles</h1>
 
-		<ul id="articles">
+		<div class="list-group items-list">
 		  <% @articles.each do |article| %>
-		    <li>
-		      <%= link_to article.title, article_path(article) %>
-		    </li>
+		      <%= link_to(article_path(article), :class=>'list-group-item list-group-item-action lead') do %>
+		      	<i class="fa fa-file-text-o"></i>  <%= article.title %><br/>
+		      <% end %>
 		  <% end %>
-		</ul>
+		</div>
 
 		<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
 		<% if user_signed_in? %>
 			<% if can? :create, @category %>
-				<%= link_to "Create a New Article", new_article_path, :class=>'btn btn-primary' %>
+				<p class="text-center"><%= link_to "Create a New Article", new_article_path, :class=>'btn btn-primary' %></p>
 			<% end %>
 		<% end %>
 	</div>

@@ -1,3 +1,11 @@
+.breadcrumbs{
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin: 48px 0;
+    color: #888;
+    font-size: .9rem;
+}
+
 .widget{
 	margin:24px 24px 48px;
 
@@ -64,5 +72,13 @@
 	.badge a{
 		color:#000;
 		font-weight:600;
+	}
+}
+
+.items-list{
+	margin:48px 0;
+
+	.fa{
+		margin-right:12px;
 	}
 }

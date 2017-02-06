@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
 
     validates :category, presence: true
 
-    self.per_page = 10
+    self.per_page = 1
 
     extend FriendlyId
     friendly_id :slug_candidates, :use => [:slugged,:history, :finders]
