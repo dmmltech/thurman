@@ -1,3 +1,17 @@
 <% breadcrumb :category, @category %>
 
-<%= @category.name %>
+<div class="row">
+	<div class="col-md-8 offset-md-2 col-xs-12">
+
+		<h1 class="text-center">Articles in <%= @category.name %> Category</h1>
+
+		<div class="list-group items-list">
+		  <% @articles.each do |article| %>
+			<%= link_to article_path(article), :class=>'list-group-item list-group-item-action lead' do %>
+				<i class="fa fa-file-text-o"></i> 
+				<%= article.title %>
+			<% end %>
+		  <% end %>
+		</div>
+	</div>
+</div>
