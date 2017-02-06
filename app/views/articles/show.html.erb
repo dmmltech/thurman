@@ -1,130 +1,53 @@
 <div class="row">
 <div class="col-md-8">
   <% breadcrumb :article, @article %>
-  <%= short_url(article_path(@article)) %>
-  <%= image_tag @article.image, :class=> 'img-responsive img-thumbnail' %>
-  <h1 class="page-header"><%= @article.title %></h1>
-  <div class="meta row">
-    <div class="col-md-3">
-      <%= time_ago_in_words(@article.created_at) %> ago
+
+   <article class="post">
+    <%= image_tag @article.image, :class=> 'img-responsive img-thumbnail' %>
+    <h1 class="post-title"><%= @article.title %></h1>
+    <div class="article-meta row">
+      <div class="col-md-3">
+        <i class="fa fa-calendar"></i> <%= time_ago_in_words(@article.created_at) %> ago
+      </div>
+      <div class="col-md-3">
+        <i class="fa fa-clock-o"></i> <%= @article.reading_time %>
+      </div>
+      <div class="col-md-3">
+        <i class="fa fa-eye"></i> <%= @article.impressionist_count %> Views 
+      </div>
+      <div class="col-md-3">
+        <i class="fa fa-user-o"></i> <%= link_to @article.user.name, author_path(name: @article.user) %>
+      </div>
     </div>
-    <div class="col-md-3">
-      <%= @article.reading_time %>
+
+    <div class="single-spacing">
+      <%= simple_format(@article.body) %>
     </div>
-    <div class="col-md-3">
-      <%= @article.impressionist_count %> Views 
+
+    <div class="sharebar">
+      <p>
+        <i class="fa fa-share"></i> <strong>Share this content:</strong> <%= short_url(article_path(@article)) %>
+      </p>
+      <%= social_share_button_tag(@article.title + ' via ' + site_title, :url => short_url(article_path(@article))) %>
     </div>
-    <div class="col-md-3">
-      <%= link_to @article.user.name, author_path(name: @article.user) %>
-    </div>
-  </div>
+    <p>
+      <i class="fa fa-tags"></i> Tags:
+      <% @article.tags.each do |tag| %>
+       <span class="badge badge-info"> <%= link_to tag.name, tag_path(tag) %></span>
+      <% end %>
+    </p>
 
-  <div class="single-spacing">
-    <%= simple_format(@article.body) %>
-  </div>
+  <%= render :partial => 'shared/comment_tabs' %>
 
-  <div class="sharebar">
-    <i class="fa fa-share"></i> Share this content: 
-    <%= social_share_button_tag(@article.title) %>
-  </div>
-  <p>
-    Tags:
-    <% @article.tags.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag) %>
-    <% end %>
-  </p>
+  </article>
+</div>
 
-  <%= link_to 'Logout', logout_path, :class=>'btn btn-success btn-sm pull-right' if user_signed_in?  %>
+  <div class="col-md-4">
+    <%= render :partial => 'shared/sidebar_archives' %>
 
-<%= link_to 'Login', login_path, :class=>'btn btn-success btn-sm pull-right' if !user_signed_in? %>
-<h4>Leave a Comment</h4>
-<hr/>
-<!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#view" role="tab">Comments</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#add" role="tab">Add Comment</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#account" role="tab">Account Settings</a>
-  </li>
-</ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane active" id="view" role="tabpanel">
+    <%= render :partial => 'shared/sidebar_categories' %>
     
-    <%= render partial: 'articles/comment', collection: @article.comments %>
-  </div>
-  <div class="tab-pane" id="add" role="tabpanel">
-    <% if user_signed_in? %>
-      <%= render partial: 'comments/form' %>
-    <% else %>
-    <div class="alert alert-danger" role="alert">
-      <p>Please login by clicking on the 'Account Settings' tab or login button.</p>
-    </div>
-    <% end %>
-  </div>
-  <div class="tab-pane" id="account" role="tabpanel">
-    <% if user_signed_in? %>
-      <%= render partial: 'shared/manage' %>
-    <% else %>
-      <%= render partial: 'shared/combo' %>
-    <% end %>
+    <%= render :partial => 'shared/sidebar_actions' %>
 
   </div>
-</div>
-
-
-</div>
-
-<div class="col-md-4"><%= link_to "<< Back to Articles List", articles_path, :class=>'btn btn-success btn-block' %>
-  <p class="text-center">
-  <% if user_signed_in? %>
-    <% if can? :update, @article %>
-      <%= link_to "Edit", edit_article_path(@article) %>
-    <% end %>  
-    <% if can? :delete, @article %>
-    <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %> 
-    <% end %>
-  <% end %>
-  </p>
-  <p class="lead">Archives</p>
-  <% @archives.sort.each do |month, archived| %>
-    <h4><%= month.strftime('%B %Y') %></h4>
-   <ul class="list-unstyled" >
-        <% for archive in archived %>
-          <li>
-           <i class="fa fa-file-text-o"></i> <%= link_to "#{archive.title}", article_path(archive) %>
-           <small> <%= archive.created_at.to_date.to_s(:long) %></small>
-          </li>
-        <% end %>
-      </ul> 
-  <% end %>
-
-  <p class="lead">Categories</p>
-  <% @categories.sort.each do |category, posts| %>
-    <h4><%= category%></h4>
-   <ul class="list-unstyled" >
-        <% for post in posts %>
-          <li>
-           <i class="fa fa-file-text-o"></i> <%= link_to "#{post.title}", article_path(post) %>
-          </li>
-        <% end %>
-      </ul> 
-  <% end %>
-
-
-<%# @categories.each do |category| %>
-  <!-- <h4><%# category %></h4>
-   <ul class="list-unstyled" >
-      <li>
-       <i class="fa fa-file-text-o"></i> <%# link_to "#{category.name}", category_path(category) %>
-      </li>
-  </ul>  -->
-<%# end %>
-
-</div>
 </div>

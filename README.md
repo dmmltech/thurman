@@ -13,6 +13,7 @@ Thurman is a starter app that I built to speed up development on projects that n
 - Post to Twitter
 - Multi-level commenting system
 - Multi-level categories
+- Post privacy
 - Tagging
 - Dynamic pages
 - Archive page

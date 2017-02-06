@@ -1,0 +1,14 @@
+<div class="sidebar-widget widget">
+ <hr/>
+    <%= link_to "<< Back to Articles List", articles_path, :class=>'btn btn-success btn-block btn-widget' %>
+  <p class="text-center">
+	  <% if user_signed_in? %>
+	    <% if can? :update, @article %>
+	      <%= link_to "Edit", edit_article_path(@article) %>
+	    <% end %>  
+	    <% if can? :delete, @article %>
+	    <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %> 
+	    <% end %>
+	  <% end %>
+  </p>
+</div>

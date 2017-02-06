@@ -1,0 +1,68 @@
+.widget{
+	margin:24px 24px 48px;
+
+	.widget-header{
+		background:#333;
+		color:#fff;
+		padding: 12px 0;
+		margin-bottom:12px;
+		line-height:1.6em;
+
+		.widget-title{
+			text-transform:uppercase;
+			text-align:center;
+		}
+	}
+
+	.lead{
+		font-weight:600;
+	}
+
+	li{
+		border-bottom:1px dotted #333;
+		padding:12px 0;
+
+		&:last-of-type{
+			border-bottom:none;
+		}
+	}
+
+	.btn-widget{
+		background-color:transparent;
+		color:inherit;
+		border:none;
+		text-decoration:underline;
+		font-weight:700;
+	}
+}
+
+.comment-tabs{
+	margin-top:48px;
+	border-top:1px solid #333;
+	padding-top:24px;
+
+	h4{
+		margin-bottom:24px;
+	}
+}
+
+.article-meta{
+	font-size:.89rem;
+	margin-bottom:24px;
+}
+
+
+.post{
+	margin-top:48px;
+	line-height:2em;
+	font-size:1.1em;
+
+	.post-title{
+		text-transform:capitalize;
+	}
+
+	.badge a{
+		color:#000;
+		font-weight:600;
+	}
+}

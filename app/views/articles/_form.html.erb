@@ -20,7 +20,7 @@
   
     <%= f.input :status, 
         collection: status_options,
-        selected: 'Draft', 
+        selected: @article.status ? @article.status : 'Draft', 
         input_html: { class: 'chosen-select form-control' }  
         %>
 
@@ -30,7 +30,7 @@
   
     <%= f.input :visibility, 
         collection: visibility_options,
-        selected: 'Public', 
+        selected: @article.visibility ? @article.visibility : 'Public', 
         input_html: { class: 'chosen-select form-control' }  
         %>
 

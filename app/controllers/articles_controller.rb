@@ -2,13 +2,13 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_user!, :only => [:new,:edit,:create,:update,:destroy,:delete]
 	
 	def index
-	  @articles = Article.where(status: 'Published').where(visibility: 'Public').paginate(:page => params[:page])
+	  @articles = Article.where(status: 'Published').where(visibility: 'Public').order(published_at: :desc).paginate(:page => params[:page])
 	  get_articles_by_month
 	end
 
 	def show
 		get_articles_by_month
-		get_articles_by_category
+		@categories = Category.all
 		@article = Article.find(params[:id])
 		@comment = Comment.new
 		@comment.commentable_id = @article.id
@@ -93,16 +93,16 @@ class ArticlesController < ApplicationController
 	end
 
 	def get_articles_by_month
-		return @archives = Article.all.group_by{ |r| r.created_at.beginning_of_month }
+		return @archives = Article.where(status: 'Published').where(visibility: 'Public').order(published_at: :desc).group_by{ |r| r.created_at.beginning_of_month }
 	end
 
 	def get_articles_by_category
-		return @categories = Article.all.group_by{ |r| r.category.name}
+		return @categories = Article.where(status: 'Published').where(visibility: 'Public').order(published_at: :desc).group_by{ |r| r.category.name}
 	end
 
 	def get_articles_by_author
 		@user = User.find(params[:name])
-		return @archives = Article.where(user_id: @user.id).group_by{ |r| r.category.name}
+		return @archives = Article.where(user_id: @user.id).where(status: 'Published').where(visibility: 'Public').order(published_at: :desc).group_by{ |r| r.category.name}
 	end
 
 

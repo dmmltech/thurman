@@ -1,0 +1,16 @@
+<div class="sidebar-widget widget">
+  <div class="widget-header">
+    <h4 class="widget-title"> <i class="fa fa-sitemap"></i> Categories</h4>
+  </div>
+  <div class="widget-content">
+	<% @categories.each do |category| %>
+	<ul class="list-unstyled" >
+		<li>
+		 <i class="fa fa-folder-open-o"></i> <span class="lead"><%= link_to category.name, category_path(category) %></span>
+		 (<%= category.articles.count %>)
+		</li>
+	</ul> 
+	<% end %>
+	<%= link_to 'Visit all Categories >>', categories_path, :class=>'btn btn-sm btn-primary btn-block btn-widget' %>
+  </div>
+</div>

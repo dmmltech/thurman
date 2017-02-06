@@ -1,0 +1,46 @@
+<div class="comment-tabs">
+  <%= link_to 'Logout', logout_path, :class=>'btn btn-success btn-sm pull-right' if user_signed_in?  %>
+
+  <%= link_to 'Login', login_path, :class=>'btn btn-success btn-sm pull-right' if !user_signed_in? %>
+  <h4>Leave a Comment <i class="fa fa-commenting-o"></i> </h4>
+  <hr/>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#view" role="tab"><i class="fa fa-comments"></i>  Comments</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#add" role="tab"><i class="fa fa-plus"></i>  Add Comment</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#account" role="tab"><i class="fa fa-gears"></i>  Account Settings</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="view" role="tabpanel">
+      
+      <%= render partial: 'articles/comment', collection: @article.comments %>
+    </div>
+    <div class="tab-pane" id="add" role="tabpanel">
+      <% if user_signed_in? %>
+        <%= render partial: 'comments/form' %>
+      <% else %>
+      <div class="alert alert-danger" role="alert">
+        <p>Please login by clicking on the 'Account Settings' tab or login button.</p>
+      </div>
+      <% end %>
+    </div>
+    <div class="tab-pane" id="account" role="tabpanel">
+      <% if user_signed_in? %>
+        <%= render partial: 'shared/manage' %>
+      <% else %>
+        <%= render partial: 'shared/combo' %>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>
