@@ -19,7 +19,10 @@
     </div>
   </div>
 
-  <div class="single-spacing"><%= simple_format(@article.body).html_safe %></div>
+  <div class="single-spacing">
+    <%= simple_format(@article.body) %>
+  </div>
+
   <div class="sharebar">
     <i class="fa fa-share"></i> Share this content: 
     <%= social_share_button_tag(@article.title) %>
