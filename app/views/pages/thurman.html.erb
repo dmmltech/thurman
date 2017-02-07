@@ -25,7 +25,7 @@
 		
 		<p>Wallace Henry Thurman was born in Salt Lake City, Utah, on August 16, 1902. After breaking into the journalism business in Los Angeles, California, Thurman relocated to New York City and became an active participant in the Harlem Renaissance. He edited and wrote plays, opinion pieces and several novels, including The Blacker the Berry: A Novel of Negro Life (1929). Thurman died in New York City on December 22, 1934. This project was named after Wallace Henry Thurman</p>
 		<p class="text-center">
-			<%= link_to 'Read more about Wallace Thurman', pages_path, :class=>"btn btn-primary" %>
+			<%= link_to 'Read more about Wallace Thurman', page_path(1), :class=>"btn btn-primary" %>
 		</p>
 	</div>
 </div>
@@ -61,11 +61,13 @@
 			Get the source
 		</p>
 		<p>
-		
+			<pre>https://github.com/dmmltech/thurman</pre>
 		</p>
 	</div>
-	<div class="col-md-4">
-		<i class="fa fa-github fa-5x"></i>
+	<div class="col-md-4 text-center">
+		<%= link_to 'https://github.com/dmmltech/thurman' do %>
+			<i class="fa fa-github fa-5x"></i>
+		<% end %>
 	</div>
 </div>
 <div class="container">
@@ -77,16 +79,20 @@
 		<p>
 			<small>Subscribe for Ruby on Rails hints and tips.</small>
 		</p>
+		<%= render partial: 'contacts/form' %>
 	</div>
 	<div class="col-md-6">
 		<p class="lead">
 			Development Blog
 		</p>
-		<p>
 			<small>Get insights from the Thurman dev team.</small>
-		</p>
+		<ul>
+			<li>Rails tips</li>
+			<li>Javascript tips</li>
+			<li>Learn dev techniques</li>
+		</ul>
 		<p>
-			<%= link_to 'Read blog posts', articles_path, :class=>'btn btn-block btn-primary btn-lg' %>
+			<%= link_to 'Read blog posts', articles_path, :class=>'btn btn-block btn-primary' %>
 		</p>
 	</div>
 </div>

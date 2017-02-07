@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'contacts/index'
+
+  get 'contacts/new'
+
     get 'auth/:provider/callback', to: 'sessions#create'
     get 'auth/failure', to: redirect('/')
     resources :tweets, only: [:new, :create]
@@ -14,6 +18,8 @@ Rails.application.routes.draw do
 	match 'tweeter' => 'pages#tweeter', :via => 'get'
 
 	get 'feed' => 'articles#feed'
+
+	resources :contacts, path: :mailing, only: [:index, :create]
 
     get 'sitemap', :to => 'sitemap#index', :defaults => {:format => 'xml'}
 

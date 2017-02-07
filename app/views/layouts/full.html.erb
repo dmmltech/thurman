@@ -24,21 +24,12 @@
       <%= current_page?(root_path) ? '</h2>'.html_safe : '</h3>'.html_safe %>
     </div>
 
-    <ul class="nav justify-content-center">
+     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <a class="nav-link active" href="<%= articles_path %>">Articles</a>
+        <a class="nav-link active" href="<%= articles_path %>">Blog</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= categories_path %>">Categories</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= tags_path %>">Tags</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= pages_path %>">Pages</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= archives_path %>">Archives</a>
+        <a class="nav-link" href="https://github.com/dmmltech/thurman">Source</a>
       </li>
     </ul>
     <hr/>
@@ -50,7 +41,7 @@
     </div>
 
     <footer class="footer text-center text-muted">
-     <p> &copy; <%= Time.now.strftime('%Y') %>  <%= site_title %> - Built on Thurman</p>
+     <p> &copy; <%= Time.now.strftime('%Y') %>  <%= site_title %> - Built on Thurman by <a href="http://dmml.tech/">dmml.tech</a></p>
     </footer>
     <ul class="nav justify-content-center nav-social">
       <li class="nav-item">
