@@ -20,7 +20,7 @@
         <%= link_to site_title, root_path %>
       <%= current_page?(root_path) ? '</h1>'.html_safe : '</h2>'.html_safe %>
        <%= current_page?(root_path) ? '<h2>'.html_safe : '<h3>'.html_safe %>
-        <%= site_tagline %>
+       <%= site_tagline %>
       <%= current_page?(root_path) ? '</h2>'.html_safe : '</h3>'.html_safe %>
     </div>
 
@@ -43,17 +43,8 @@
     </ul>
     <hr/>
 </header>
- <div class="breads">
-   <div class="container">
-    <%= breadcrumbs pretext: "You are here: ",
-          separator: " &rsaquo; ", semantic: true %>
-    </div>
-</div>
 
-    <div class="container wrapper">
-        <p class="flash">
-          <%= flash.notice %>
-        </p>
+    <div class="wrapper full">
      
         <%= yield %>
     </div>

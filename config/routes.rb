@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     get 'auth/failure', to: redirect('/')
     resources :tweets, only: [:new, :create]
 
-	root to: 'articles#index'
+	root to: 'pages#thurman'
 	
 	mount Ckeditor::Engine => '/ckeditor'
   

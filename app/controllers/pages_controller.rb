@@ -13,6 +13,10 @@ class PagesController < ApplicationController
 	def tweeter
 	end
 
+	def thurman
+		render :layout => "full"
+	end
+
 	def new
 		@page = Page.new
 		authorize! :create, @page
