@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
-	before_action :authenticate_user!, :only => [:new,:edit]
+	before_action :authenticate_user!, :except => [:show]
 
 	def index 
 		@pages = Page.paginate(:page => params[:page])
+		authorize! :read, @page
 	end
 
 	def show
@@ -11,6 +12,7 @@ class PagesController < ApplicationController
 	end
 
 	def tweeter
+		authorize! :manage, @page
 	end
 
 	def thurman
@@ -23,6 +25,7 @@ class PagesController < ApplicationController
 	end
 
 	def create
+		authorize! :create, @page
 		@page = Page.create(page_params)
 		@page.save
 	    redirect_to page_path(@page)
@@ -34,6 +37,7 @@ class PagesController < ApplicationController
 	end
 
 	def update
+		authorize! :update, @page
 	  @page = Page.find(params[:id])
 	  @page.update!(page_params)
 	  flash.notice = "Page '#{@page.title}' Updated!"
@@ -54,12 +58,14 @@ class PagesController < ApplicationController
 	  	:title, 
 	  	:body,
 		:published_at,
+		:visibility,
 		:slug,
 		:status,
 		:order,
 		:parent_id,
 		:counter_cache,
-		:image
+		:image,
+		:menu
 	  	)
 	end
 

@@ -25,14 +25,39 @@
     </div>
 
     <ul class="nav justify-content-center">
+      <% @menupages.sort.each do |parent, children| %>
+        <li class="nav-item dropdown">
+          <%= link_to parent.title.capitalize, page_path(parent), :class=> "nav-link #{css_class_active_for(page_path(parent))} " , :data=> {:toggle=>'dropdown'} %>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <% for child in children %>
+                <%= link_to child.title.capitalize, page_path(child), :class=> "dropdown-item" %>
+              <% end %>
+            </div>
+        </li>
+      <% end %>
       <li class="nav-item">
-        <a class="nav-link active" href="<%= articles_path %>">Blog</a>
+         <%= link_to 'Blog', articles_path, :class=> "nav-link #{css_class_active_for(articles_path)}" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="https://github.com/dmmltech/thurman">Source</a>
+        <%= link_to 'Source', 'https://github.com/dmmltech/thurman', :class=> "nav-link"  %>
       </li>
+       <% if has_role?(:admin) %>
+       <li class="nav-item">
+        <%= link_to 'Manage', editorial_path, :class=> "nav-link #{css_class_active_for(editorial_path)}"  %>
+      </li>
+      <% end %>
+      <% if has_role?(:editor) %>
+       <li class="nav-item">
+        <%= link_to 'Manage', editorial_path, :class=> "nav-link #{css_class_active_for(editorial_path)}"  %>
+      </li>
+      <% end %>
+      <% if has_role?(:author) %>
+       <li class="nav-item">
+        <%= link_to 'Manage', editorial_path, :class=> "nav-link #{css_class_active_for(editorial_path)}"  %>
+      </li>
+      <% end %>
     </ul>
-    <hr/>
+
 </header>
  <div class="breads">
    <div class="container">

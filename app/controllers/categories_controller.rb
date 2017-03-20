@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-	before_action :authenticate_user!, :only => [:new,:edit]
+	before_action :authenticate_user!, :except => [:index,:show]
 
 	def index
 	  @categories = Category.paginate(:page => params[:page])
@@ -20,7 +20,6 @@ class CategoriesController < ApplicationController
 	def create
 	  @category = Category.new(category_params)
 	  @category.save
-
 	  redirect_to category_path(@category)
 	end
 

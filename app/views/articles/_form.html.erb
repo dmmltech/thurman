@@ -35,7 +35,9 @@
         %>
 
     <%= check_box_tag 'twitter', 'Yes' %> Post to Twitter?
-    <%= text_area_tag 'tweet', 'Your Twitter message - via ' + root_url + Shortener::ShortenedUrl.generate(article_url(@article)).unique_key, cols:80 %>
+<%# text_area_tag 'tweet', 'Your Twitter message - via ' + root_url + Shortener::ShortenedUrl.generate(article_url(@article)).unique_key, cols:80 %> 
+
+    <%= text_area_tag 'tweet', 'Your Twitter message - via ' + root_url %>
 
   <%= f.input :user_id, :as => :hidden, :input_html=>{:value=> current_user.id} if user_signed_in? %>
 

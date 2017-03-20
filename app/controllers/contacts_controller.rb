@@ -1,12 +1,12 @@
 class ContactsController < ApplicationController
-  before_action :authenticate_user!, :only => [:manage,:edit,:update,:destroy,:delete]
+  before_action :authenticate_user!, :except => [:index,:new,:create]
 
   def index
-    @contacts = Contact.all
+    @contacts = Contact.all.order(created_at: :desc)
   end
 
   def manage
-    @contacts = Contact.order(:created_at)
+    @contacts = Contact.order(created_at: :desc)
     respond_to do |format|
       format.html
       format.csv { send_data @contacts.as_csv, filename: "contacts-#{Date.today}.csv" }

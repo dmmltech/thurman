@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :store_current_location, :unless => :devise_controller?
+  before_action :set_pages
 
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
@@ -23,5 +24,8 @@ class ApplicationController < ActionController::Base
     request.referrer || root_path
   end
 
+  def set_pages
+    @menupages = Page.where.not(parent_id: nil).where(menu: true).where(status: 'Published').where(visibility: 'Public').order(order: :asc).group_by{ |r| r.parent}
+  end
   
 end

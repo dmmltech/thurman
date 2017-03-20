@@ -122,5 +122,12 @@ module ApplicationHelper
 		@devise_mapping ||= Devise.mappings[:user]
 	end
 
+	def current_path
+		request.env['PATH_INFO']
+	end
+
+	def css_class_active_for link_path
+		link_path == current_path ? "active" : "inactive"
+	end
 
 end

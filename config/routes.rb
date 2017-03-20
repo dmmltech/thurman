@@ -48,6 +48,8 @@ Rails.application.routes.draw do
 		match 'manage-account' => 'devise/registrations#edit', :via => 'get'
 	end
 
+	resources :users
+
 	get '/:id' => "shortener/shortened_urls#show"
 
 

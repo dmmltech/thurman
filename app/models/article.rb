@@ -8,17 +8,23 @@ class Article < ActiveRecord::Base
 	has_many :taggings, :dependent => :destroy
 	has_many :tags, through: :taggings
 
-    validates :category, presence: true
+	validates :category, presence: true
 
-    self.per_page = 10
+	self.per_page = 10
 
-    extend FriendlyId
-    friendly_id :slug_candidates, :use => [:slugged,:history, :finders]
+	extend FriendlyId
+  friendly_id :slug_candidates, :use => [:slugged,:history, :finders]
 
 	def slug_candidates
 		slugger = rand(1..100)
+		category = self.category.name
+		author = self.user.name
+
 		[
 			[:title],
+			[:title, author],
+			[:title, category],
+			[:title, author, category],
 			[:title, slugger]
 		]
 	end

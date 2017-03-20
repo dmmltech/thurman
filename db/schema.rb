@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207042844) do
+ActiveRecord::Schema.define(version: 20170320160121) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -120,11 +120,12 @@ ActiveRecord::Schema.define(version: 20170207042844) do
     t.string   "status"
     t.integer  "order"
     t.integer  "parent_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "impressions_count", default: 0
     t.string   "visibility"
     t.string   "image"
+    t.boolean  "menu",              default: false
   end
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id"
