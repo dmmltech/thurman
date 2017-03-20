@@ -3,18 +3,19 @@ Rails.application.routes.draw do
 
   get 'contacts/new'
 
-    get 'auth/:provider/callback', to: 'sessions#create'
-    get 'auth/failure', to: redirect('/')
-    resources :tweets, only: [:new, :create]
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  resources :tweets, only: [:new, :create]
 
 	root to: 'pages#thurman'
 	
 	mount Ckeditor::Engine => '/ckeditor'
   
-  	get 'sitemap/index'
+  get 'sitemap/index'
 
-    match 'author' => 'articles#author', :via => 'get'
+  match 'author' => 'articles#author', :via => 'get'
 	match 'archives' => 'articles#archives', :via => 'get'
+	match 'editorial' => 'articles#editorial', :via => 'get'
 	match 'tweeter' => 'pages#tweeter', :via => 'get'
 
 	get 'feed' => 'articles#feed'

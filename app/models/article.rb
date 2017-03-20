@@ -71,7 +71,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def self.scheduled_posts
-		where(status: 'Scheduled').where('published_at == ?', Date.current )
+		where(status: 'Scheduled').where('published_at <= ?', Date.current )
 	end
 
 	def self.publish_scheduled

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2 col-xs-12">
+    <h1><%= site_title %> Archives</h1>
+    
+      <% @archives.sort.reverse.each do |month, archived| %>
+        <p class="lead"><%= month.strftime('%B %Y') %></p>
+        <table class="table table-responsive">
+         <thead>
+          <tr>
+            <th>#</th>
+            <th>Visible</th>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for archive in archived %>
+            <tr>
+              <td><%= archive.id %></td>
+              <td><%= archive.published_at.to_date.to_s(:long) %></td>
+              <td><%= archive.category.name %></td>
+              <td><%= link_to "#{archive.title}", article_path(archive) %></td>
+              <td><span class="badge badge-danger"><%= archive.status %></span></td>
+            </tr> 
+            <% end %>
+        </tbody>
+      </table>
+      <% end %>
+       
+    </div>
+</div>
+  

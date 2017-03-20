@@ -57,6 +57,10 @@ class ArticlesController < ApplicationController
 		get_articles_by_month
 	end
 
+	def editorial
+		get_editorial_calendar
+	end
+
 	def author
 		get_articles_by_author
 	end
@@ -90,6 +94,10 @@ class ArticlesController < ApplicationController
 			url = Shortener::ShortenedUrl.generate(article_url(@article)).unique_key
 			params[:tweet] != ''  ? current_user.tweet(params[:tweet]) : current_user.tweet(@article.title + ' via ' + root_url + url)
 		end
+	end
+
+	def get_editorial_calendar
+		return @archives = Article.where(visibility: 'Public').order(published_at: :asc).group_by{ |r| r.published_at.beginning_of_month }
 	end
 
 	def get_articles_by_month
