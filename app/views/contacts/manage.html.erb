@@ -1,0 +1,13 @@
+
+
+<% if user_signed_in? %>
+<hr/>
+	<% if current_user.has_role? :admin %>
+	<h3>Mailing List Subscribers</h3>
+	<ul>
+		<% @contacts.each do |c| %>
+			<li><%= c.email %></li>
+		<% end %>
+	</ul>
+	<% end %>
+<% end %>

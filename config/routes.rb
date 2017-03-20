@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
   get 'sitemap/index'
 
+  match 'leads' => 'contacts#manage', :via => 'get'
   match 'author' => 'articles#author', :via => 'get'
 	match 'archives' => 'articles#archives', :via => 'get'
 	match 'editorial' => 'articles#editorial', :via => 'get'
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
 
 	resources :contacts, path: :mailing, only: [:index, :create]
 
-    get 'sitemap', :to => 'sitemap#index', :defaults => {:format => 'xml'}
+  get 'sitemap', :to => 'sitemap#index', :defaults => {:format => 'xml'}
 
 	resources :articles do
 		resources :comments
