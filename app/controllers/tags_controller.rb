@@ -7,7 +7,7 @@ class TagsController < ApplicationController
 
 	def show
 	  @tag = Tag.find(params[:id])
-	  @articles = @tag.articles.where(status: 'Published').where(visibility: 'Public').order(published_at: :desc)
+	  @articles = @tag.articles.where(status: 'Published').where(visibility: 'Public').order(published_at: :desc).paginate(:page => params[:page])
 	  impressionist @tag, '', :unique => [:controller_name, :action_name, :session_hash]
 	end
 

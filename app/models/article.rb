@@ -18,13 +18,13 @@ class Article < ActiveRecord::Base
 	def slug_candidates
 		slugger = rand(1..100)
 		category = self.category.name
-		author = self.user.name
+		# author = self.user.name
 
 		[
 			[:title],
-			[:title, author],
-			[:title, category],
-			[:title, author, category],
+			# [:title, author],
+			# [:title, category],
+			# [:title, author, category],
 			[:title, slugger]
 		]
 	end

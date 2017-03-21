@@ -9,7 +9,7 @@ include Devise::Test::ControllerHelpers
 
 	test "should get index" do
 		get :index
-		assert_response :success
+		assert_redirected_to new_user_session_path
 	end
 
 	test "should show the page" do

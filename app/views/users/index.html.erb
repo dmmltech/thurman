@@ -1,0 +1,4 @@
+<h2>Contributors</h2>
+<% @users.each do |author| %>
+	<%= link_to author.name, user_path(author) %>
+<% end %>

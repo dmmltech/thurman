@@ -45,7 +45,7 @@ footer {
 }
 
 .article-index-header{
-  background:#009688;
+  background:#0277BD;
   padding: 50px 0;
 
   .lead{
@@ -59,13 +59,18 @@ footer {
 }
 
 .bg-faded,.navbar-light .navbar-brand, .navbar-light .navbar-toggler,.navbar-light .navbar-nav .nav-link {
-    background-color: #26A69A;
+    background-color: #01579B;
     color:#FAFAFA;
 }
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.open, .navbar-light .navbar-nav .open>.nav-link {
     color: #fff;
-    background: #004D40;
+    background:#039BE5;
     padding: 6px 8px;
     border-radius: 2px;
+}
+
+.badge-info {
+    background-color: #fff;
+    border: 1px solid #0277BD;
 }

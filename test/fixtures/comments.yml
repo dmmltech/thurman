@@ -4,4 +4,4 @@ first:
   body: this is a comment
   media: http://wxample.com
   commentable: one(Article)
-  user: admin
+  user: adminUser

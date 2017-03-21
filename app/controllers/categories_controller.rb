@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
 
 	def show
 		@category = Category.find(params[:id])
-		@articles = @category.articles.where(status: 'Published').where(visibility: 'Public').order(published_at: :desc)
+		@articles = @category.articles.where(status: 'Published').where(visibility: 'Public').order(published_at: :desc).paginate(:page => params[:page])
 		impressionist @category, '', :unique => [:controller_name, :action_name, :session_hash]
 	end
 

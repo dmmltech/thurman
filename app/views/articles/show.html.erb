@@ -38,14 +38,14 @@
         <i class="fa fa-user-o"></i> <%= link_to @article.user.name, author_path(name: @article.user) %>
       </div>
     </div>
-    <hr/>
+   
     <p>
       <i class="fa fa-tags"></i> Tagged:<br/>
       <% @article.tags.each do |tag| %>
        <span class="badge badge-info"> <%= link_to tag.name, tag_path(tag) %></span>
       <% end %>
     </p>
-    <hr/>
+   
     <%= render :partial => 'shared/sidebar' %>
   </div>
 </div>

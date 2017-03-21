@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-	before_action :authenticate_user!, :except => [:index,:show]
+	before_action :authenticate_user!, :except => [:index,:show,:archives,:author]
 	
 	def index
 		@q = Article.ransack(params[:q])
@@ -42,15 +42,14 @@ class ArticlesController < ApplicationController
 	  flash.notice = "Article '#{@article.title}' Updated!"
 	rescue Twitter::Error => e
 	  flash.notice = "Twitter status not sent-#{e.message}"
-	  redirect_to article_path(@article)
-	  
+	 redirect_to article_path(@article)
 	end
 
 	def destroy
+		authorize! :delete, @article
 		@article = Article.find(params[:id])
 		@article.destroy
 		redirect_to articles_path
-		authorize! :delete, @article
 	end
 
 	def archives

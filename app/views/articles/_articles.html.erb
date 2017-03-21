@@ -1,0 +1,28 @@
+
+
+<div class="row">
+	<div class="col-md-10 offset-md-1 col-sm-12">
+		<% breadcrumb :articles, @articles, :style => :bootstrap %>
+		<h1 class="text-center"><%= @category.name.capitalize if @category %> Articles
+		 <%= 'tagged with ' + @tag.name.capitalize if @tag %></h1>
+	<hr/>
+	<div class="card-columns">
+		<% @articles.each do |article| %>
+		    <%= link_to article_path(article) do %>
+		      <div class="col">
+		       <div class="card index-card">
+					    <%= image_tag article.image.thumb, :class=>"card-img-top img-responsive" %>
+					    <div class="card-block">
+					      <h4 class="card-title"><%= article.title %></h4>
+					    </div>
+					  </div>
+					</div>
+				<% end %>
+		<% end %>
+	</div>
+
+		<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+		
+	</div>
+</div>
+

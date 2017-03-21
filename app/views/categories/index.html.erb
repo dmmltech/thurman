@@ -1,23 +1,25 @@
 <div class="row">
 	<div class="col-md-8 offset-md-2 col-xs-12">
 		<% breadcrumb :categories, @categories %>
-		<h1><%= site_title %>  Categories</h1>
 
-		<div class="list-group items-list">
+		<h1>Categories</h1>
+		<hr/>
+		<div class="row">
 		  <% @categories.each do |category| %>
-		      <%= link_to(category_path(category), :class=>"list-group-item list-group-item-action lead") do %>
-		      	<i class="fa fa-folder-open-o"></i> 
-		      	<%= category.name %>
-		      	(<%= category.articles.where(status: 'Published').where(visibility: 'Public').count %>)
+		  <div class="col-md-4 col-sm-12">
+		      <%= link_to category_path(category)do %>
+			      <div class="card text-center">
+			      	<div class="card-block">
+						    <h4 class="card-title"><%= category.name %>
+						    	<small>
+						    		(<%= category.articles.where(status: 'Published').where(visibility: 'Public').count %>)</small>
+						    	</h4>
+						  </div>
+						</div>
 		      <% end %>
+		      </div>
 		  <% end %>
 		</div>
-
-		<%= will_paginate @categories, renderer: BootstrapPagination::Rails %>
-		<% if user_signed_in? %>
-			<% if can? :create, @category %>
-				<%= link_to "Add new category", new_category_path, :class=>'btn btn-primary' %>
-			<% end %>
-		<% end %>
+		
 	</div>
 </div>

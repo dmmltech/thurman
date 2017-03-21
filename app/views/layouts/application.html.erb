@@ -36,23 +36,23 @@
             </div>
         </li>
       <% end %>
-      <li class="nav-item">
-         <%= link_to 'Blog', articles_path, :class=> "nav-link #{css_class_active_for(articles_path)}" %>
+      <% if has_role?(:author) %>
+       <li class="nav-item">
+        <%= link_to 'Submit', new_article_path, :class=> "nav-link #{css_class_active_for(new_article_path)}"  %>
       </li>
+      <% end %>
       <li class="nav-item">
+         <%= link_to 'Read', articles_path, :class=> "nav-link #{css_class_active_for(articles_path)}" %>
+      </li>
+      <!-- <li class="nav-item">
         <%= link_to 'Source', 'https://github.com/dmmltech/thurman', :class=> "nav-link"  %>
-      </li>
+      </li> -->
        <% if has_role?(:admin) %>
        <li class="nav-item">
-        <%= link_to 'Manage', editorial_path, :class=> "nav-link #{css_class_active_for(editorial_path)}"  %>
+        <%= link_to 'Admin', editorial_path, :class=> "nav-link #{css_class_active_for(editorial_path)}"  %>
       </li>
       <% end %>
       <% if has_role?(:editor) %>
-       <li class="nav-item">
-        <%= link_to 'Manage', editorial_path, :class=> "nav-link #{css_class_active_for(editorial_path)}"  %>
-      </li>
-      <% end %>
-      <% if has_role?(:author) %>
        <li class="nav-item">
         <%= link_to 'Manage', editorial_path, :class=> "nav-link #{css_class_active_for(editorial_path)}"  %>
       </li>

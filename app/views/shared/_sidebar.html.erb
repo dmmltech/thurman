@@ -1,5 +1,7 @@
-<%= link_to "Article Index", articles_path, :class=>'btn btn-sm btn-primary btn-block btn-widget' %>
-<%= link_to 'Categories', categories_path, :class=>'btn btn-sm btn-primary btn-block btn-widget' %>
-<%= link_to 'Tags', tags_path, :class=>'btn btn-sm btn-primary btn-block btn-widget' %>
-<%= link_to "Your Account", manage_account_path, :class=>'btn btn-sm btn-primary btn-block btn-widget' %>
+<ul class="list-group">
+	<li class="list-group-item"><%= link_to "Article Index", articles_path %></li>
+	<li class="list-group-item"><%= link_to 'Categories', categories_path %></li>
+	<li class="list-group-item"><%= link_to 'Tags', tags_path %></li>
+	<li class="list-group-item"><%= link_to "Your Account", manage_account_path %></li>
+</ul>
 <%= render :partial => 'shared/sidebar_actions' %>
