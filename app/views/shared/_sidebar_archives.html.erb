@@ -7,13 +7,12 @@
      <p class="lead"><%= month.strftime('%B %Y') %></p>
      <ul class="list-unstyled" >
         <% archived.take(6).each do |archive| %>
-          <li>
-           <i class="fa fa-file-text-o"></i> <%= link_to "#{archive.title}", article_path(archive) %>
-           <small> <%= archive.created_at.to_date.to_s(:short) %></small>
+          <li class="item">
+           <%= link_to "#{archive.title}", article_path(archive) %>
           </li>
         <% end %>
       </ul> 
     <% end %>
-    <%= link_to 'Visit Blog Archives >>', archives_path, :class=>'btn btn-sm btn-primary btn-block btn-widget' %>
+   
   </div>
 </div>

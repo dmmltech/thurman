@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :store_current_location, :unless => :devise_controller?
   before_action :set_pages
+  before_action :set_search
 
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
@@ -26,6 +27,10 @@ class ApplicationController < ActionController::Base
 
   def set_pages
     @menupages = Page.where.not(parent_id: nil).where(menu: true).where(status: 'Published').where(visibility: 'Public').order(order: :asc).group_by{ |r| r.parent}
+  end
+
+  def set_search
+    @q = Article.ransack(params[:q])
   end
   
 end

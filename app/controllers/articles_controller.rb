@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
-	before_action :authenticate_user!, :except => [:show]
-	
+	before_action :authenticate_user!, :except => [:index,:show]
 	
 	def index
-	  @articles = Article.where(status: 'Published').where(visibility: 'Public').order(published_at: :desc).paginate(:page => params[:page])
-	  get_articles_by_month
+		@q = Article.ransack(params[:q])
+  	@articles= @q.result(distinct: true).where(status: 'Published').where(visibility: 'Public').order(published_at: :desc).paginate(:page => params[:page])
+	  # get_articles_by_month
 	end
 
 	def show

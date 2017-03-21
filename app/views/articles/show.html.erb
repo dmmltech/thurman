@@ -1,48 +1,51 @@
 <div class="row">
-<div class="col-md-8">
+  <div class="col-md-8 offset-md-1 col-sm-12">
   <% breadcrumb :article, @article %>
 
    <article class="post">
+     <h1 class="post-title"><%= @article.title %></h1>
     <%= image_tag @article.image, :class=> 'img-responsive img-thumbnail' %>
-    <h1 class="post-title"><%= @article.title %></h1>
-    <div class="article-meta row">
-      <div class="col-md-3">
-        <i class="fa fa-calendar"></i> <%= time_ago_in_words(@article.created_at) %> ago
-      </div>
-      <div class="col-md-3">
-        <i class="fa fa-clock-o"></i> <%= @article.reading_time %>
-      </div>
-      <div class="col-md-3">
-        <i class="fa fa-eye"></i> <%= @article.impressionist_count %> Views 
-      </div>
-      <div class="col-md-3">
-        <i class="fa fa-user-o"></i> <%= link_to @article.user.name, author_path(name: @article.user) %>
-      </div>
-    </div>
-
+   
     <div class="single-spacing">
       <%= simple_format(@article.body) %>
     </div>
 
     <div class="sharebar">
       <p>
-        <i class="fa fa-share"></i> <strong>Share this content:</strong> <%= short_url(article_path(@article)) %>
+        <i class="fa fa-share"></i> <strong>Share this article:</strong> <%= short_url(article_path(@article)) %>
       </p>
       <%= social_share_button_tag(@article.title + ' via ' + site_title, :url => short_url(article_path(@article))) %>
     </div>
-    <p>
-      <i class="fa fa-tags"></i> Tags:
-      <% @article.tags.each do |tag| %>
-       <span class="badge badge-info"> <%= link_to tag.name, tag_path(tag) %></span>
-      <% end %>
-    </p>
+    
 
   <%= render :partial => 'shared/comment_tabs' %>
 
   </article>
 </div>
 
-  <div class="col-md-4">
+  <div class="col-md-2 offset-md-1 col-sm-12">
+    <div class="article-meta row">
+      <div class="col-md-12">
+        <i class="fa fa-clock-o"></i> <%= @article.reading_time %>
+      </div>
+      <div class="col-md-12">
+        <i class="fa fa-eye"></i> <%= @article.impressionist_count %> Views 
+      </div>
+       <div class="col-md-12">
+        <i class="fa fa-calendar"></i> <%= time_ago_in_words(@article.created_at) %> ago
+      </div>
+      <div class="col-md-12">
+        <i class="fa fa-user-o"></i> <%= link_to @article.user.name, author_path(name: @article.user) %>
+      </div>
+    </div>
+    <hr/>
+    <p>
+      <i class="fa fa-tags"></i> Tagged:<br/>
+      <% @article.tags.each do |tag| %>
+       <span class="badge badge-info"> <%= link_to tag.name, tag_path(tag) %></span>
+      <% end %>
+    </p>
+    <hr/>
     <%= render :partial => 'shared/sidebar' %>
   </div>
 </div>

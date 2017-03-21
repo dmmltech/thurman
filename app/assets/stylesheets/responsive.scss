@@ -6,7 +6,17 @@
 // No media query since this is the default in Bootstrap
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {  }
+@media (min-width: 250px) {  
+	.index-card{
+	  margin-bottom:24px;
+	}
+
+
+	.article-index-header{
+	  padding: 50px 50px;
+	}
+
+}
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {  }

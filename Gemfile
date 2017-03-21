@@ -44,6 +44,7 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'twitter'
 gem "figaro"
 gem 'shortener'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug'

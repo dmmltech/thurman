@@ -64,11 +64,12 @@ header{
 }
 
 footer {
-  background-color: #FFD740;
+  background-color: #009688;
+  color:#fff;
 }
 
 .nav-social{
-	background:#000;
+	background:#26A69A;
 
 	.fa{
 		font-size:1rem;
@@ -101,8 +102,13 @@ footer {
 		}
 	}
 
+	.item{
+		font-size:.8rem;
+	}
+
 	.lead{
 		font-weight:600;
+		font-size:.8rem;
 	}
 
 	li{

@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   resources :tweets, only: [:new, :create]
 
-	root to: 'pages#thurman'
+	root to: 'articles#index'
 	
 	mount Ckeditor::Engine => '/ckeditor'
   
   get 'sitemap/index'
 
   match 'leads' => 'contacts#manage', :via => 'get'
+  match 'thurman' => 'pages#thurman', :via => 'get'
   match 'author' => 'articles#author', :via => 'get'
 	match 'archives' => 'articles#archives', :via => 'get'
 	match 'editorial' => 'articles#editorial', :via => 'get'

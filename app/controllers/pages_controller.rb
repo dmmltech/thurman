@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	before_action :authenticate_user!, :except => [:show]
+	before_action :authenticate_user!, :except => [:show,:thurman]
 
 	def index 
 		@pages = Page.paginate(:page => params[:page])

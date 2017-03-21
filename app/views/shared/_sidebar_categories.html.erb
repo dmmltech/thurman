@@ -5,7 +5,7 @@
   <div class="widget-content">
 	<% @categories.each do |category| %>
 	<ul class="list-unstyled" >
-		<li>
+		<li class="item">
 		 <i class="fa fa-folder-open-o"></i> <span class="lead"><%= link_to category.name, category_path(category) %></span>
 		 (<%= category.articles.where(status: 'Published').where(visibility:'Public').count %>)
 		</li>

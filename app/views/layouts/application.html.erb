@@ -15,16 +15,17 @@
   <body>
 <header>
 
-    <div class="brand text-center">
-      <%= current_page?(root_path) ? '<h1>'.html_safe : '<h2>'.html_safe %>
-        <%= link_to site_title, root_path %>
-      <%= current_page?(root_path) ? '</h1>'.html_safe : '</h2>'.html_safe %>
-       <%= current_page?(root_path) ? '<h2>'.html_safe : '<h3>'.html_safe %>
-        <%= site_tagline %>
-      <%= current_page?(root_path) ? '</h2>'.html_safe : '</h3>'.html_safe %>
-    </div>
 
-    <ul class="nav justify-content-center">
+
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="<%= articles_url %>">Thurman</a>
+
+  <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
+    <ul class="navbar-nav ml-auto mt-2 mt-md-0 justify-content-end">
       <% @menupages.sort.each do |parent, children| %>
         <li class="nav-item dropdown">
           <%= link_to parent.title.capitalize, page_path(parent), :class=> "nav-link #{css_class_active_for(page_path(parent))} " , :data=> {:toggle=>'dropdown'} %>
@@ -57,14 +58,44 @@
       </li>
       <% end %>
     </ul>
+  </div>
+</nav>
+
+
+ <div class="article-index-header">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 col-sm-12">
+      <%= search_form_for @q do |f| %>
+        <div class="row no-gutters">
+          <p class="lead">Looking for articles about...?</p>
+          <div class="col-md-9 col-sm-12">
+            <div class="form-group">
+                <%= f.search_field :title_cont, :class=>"form-control" %>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-12">
+            <%= f.submit 'Search Articles', :class=>'btn btn-primary btn-block ' %>
+          </div>
+        </div>
+      <% end %>
+      <p class="text-center">
+        Don't miss an article. Subscribe to the mailing list <%= link_to 'here', leads_path %>.
+      </p>
+    </div>
+  </div>
+</div>
 
 </header>
+<!-- 
+
  <div class="breads">
    <div class="container">
     <%= breadcrumbs pretext: "You are here: ",
           separator: " &rsaquo; ", semantic: true %>
     </div>
 </div>
+ -->
+
 
     <div class="container wrapper">
         <p class="flash">
@@ -74,7 +105,7 @@
         <%= yield %>
     </div>
 
-    <footer class="footer text-center text-muted">
+    <footer class="footer text-center">
      <p> &copy; <%= Time.now.strftime('%Y') %>  <%= site_title %> - Built on Thurman</p>
     </footer>
     <ul class="nav justify-content-center nav-social">

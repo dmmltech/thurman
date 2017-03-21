@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index,:new,:create]
+  before_action :authenticate_user!, :except => [:index,:new,:create,:manage]
 
   def index
     @contacts = Contact.all.order(created_at: :desc)

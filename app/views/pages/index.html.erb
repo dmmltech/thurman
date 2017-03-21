@@ -2,6 +2,8 @@
 	<div class="col-md-8 offset-md-2 col-xs-12">
 		<% breadcrumb :pages, @pages, :style => :bootstrap %>
 		<h1 class="text-center"><%= site_title %>  Pages</h1>
+
+		
 		<div class="list-group items-list">
 		  <% @pages.each do |page| %>
 		      <%= link_to(page_path(page), :class=>'list-group-item list-group-item-action lead') do %>
@@ -9,6 +11,8 @@
 		      <% end %>
 		  <% end %>
 		</div>
+
+
 
 		<%= will_paginate @pages, renderer: BootstrapPagination::Rails %>
 		<% if user_signed_in? %>
