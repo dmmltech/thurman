@@ -6,7 +6,7 @@
   </ul>
     <%= f.input :title, :class=> 'form-control' %>
   
-    <%= f.input :body, as: :ckeditor %>
+    <%= f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini' } }  %>
   
     <%= f.input :image, as: :file %>
     
