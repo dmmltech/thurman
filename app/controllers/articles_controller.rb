@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-	before_action :authenticate_user!, :except => [:index,:show,:archives,:author]
+	before_action :authenticate_user!, :except => [:index,:show,:archives,:author,:feed]
 	
 	def index
 		@q = Article.ransack(params[:q])
@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def feed
-		@articles = Article.all
+		@articles = Article.where(status: 'Published').where(visibility: 'Public').order(published_at: :desc)
 		respond_to do |format|
 		  format.rss { render :layout => false }
 		end
