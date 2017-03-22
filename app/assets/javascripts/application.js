@@ -14,7 +14,6 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
-//= require trix
 //= require tag-it
 //= require social-share-button
 //= require ckeditor/init

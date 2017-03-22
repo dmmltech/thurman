@@ -11,7 +11,6 @@
  * file per style scope.
  *
  *= require_tree .
- *= require trix
  *= require jquery-ui
  *= require jquery.tagit.css
  #= require social-share-button

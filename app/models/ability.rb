@@ -11,6 +11,7 @@ class Ability
 
     if user.has_role? :editor
       can :update, Article
+      can :access, :ckeditor
     end
 
     if user.has_role? :author
