@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+	mount Ckeditor::Engine => '/ckeditor'
+	
   get 'contacts/index'
 
   get 'contacts/new'
@@ -8,8 +10,6 @@ Rails.application.routes.draw do
   resources :tweets, only: [:new, :create]
 
 	root to: 'articles#index'
-	
-	mount Ckeditor::Engine => '/ckeditor'
   
   get 'sitemap/index'
 
