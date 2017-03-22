@@ -17,7 +17,7 @@
 //= require tag-it
 //= require social-share-button
 //= require ckeditor/init
-//= require ckeditor/toolbar
+= require ckeditor/toolbar
 //= require_tree .
 //= require turbolinks
 
