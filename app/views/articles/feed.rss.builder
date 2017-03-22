@@ -22,7 +22,7 @@ xml.rss :version => "2.0", 'xmlns:atom' => 'http://www.w3.org/2005/Atom' do
 
         text = article.body
 		
-        xml.description "<p>" + text + "</p>"
+        xml.description "<p>" + raw(text) + "</p>"
 
       end
     end

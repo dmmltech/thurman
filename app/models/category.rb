@@ -19,7 +19,7 @@ class Category < ActiveRecord::Base
     end
 
   def should_generate_new_friendly_id?
-    slug.blank? || title_changed?
+    slug.blank? || name_changed?
   end
 
   scope :with_children, ->() { joins(:children).distinct }
