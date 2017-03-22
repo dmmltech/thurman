@@ -1,48 +1,53 @@
 <%= simple_form_for(@article, :html => {:multipart => true}) do |f| %>
-  <ul>
-    <% @article.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-  
-    <%= f.input :title, :class=> 'form-control' %>
-  
-    <%= f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini' } } %>
-  
-    <%= f.association :category, 
-      label_method: :name, 
-      value_method: :id, 
-      selected: @article.category ? @article.category.id : Category.root.id,
-      :class=>"form-control" 
-    %>
+<div class="row">
+  <div class="col-md-9 col-sm-12">
+      <ul>
+        <% @article.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+      
+        <%= f.input :title, :class=> 'form-control' %>
+      
+        <%= f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini' } } %>
 
-    <%= f.input :image, as: :file %>
-  
-    <%= f.input :status, 
-        collection: status_options,
-        selected: @article.status ? @article.status : 'Draft', 
-        input_html: { class: 'chosen-select form-control' }  
+        <%= f.input :tag_list, :class=>"form-control", :input_html => {:id=>'tags', :value=> @article.tag_list.to_s},  label:  'Tags', :hint=>'(separated by commas)' %>
+
+            <%= check_box_tag 'twitter', 'Yes' %> Post to Twitter?
+    <%# text_area_tag 'tweet', 'Your Twitter message - via ' + root_url + Shortener::ShortenedUrl.generate(article_url(@article)).unique_key, cols:80 %> 
+
+        <%= text_area_tag 'tweet', 'Your Twitter message - via ' + root_url, :class=>"form-control"  %>
+  </div>
+      <div class="col-md-3 col-sm-12">
+      
+        <%= f.association :category, 
+          label_method: :name, 
+          value_method: :id, 
+          selected: @article.category ? @article.category.id : Category.root.id,
+          :class=>"form-control" 
         %>
 
-  
-    <%= f.input :published_at, :class=> 'form-control', :input_html => { :value => Date.current.in_time_zone  }%>
+        <%= f.input :status, 
+          collection: status_options,
+          selected: @article.status ? @article.status : 'Draft', 
+          input_html: { class: 'chosen-select form-control' }  
+          %>
 
-  
-    <%= f.input :visibility, 
+        <%= f.input :visibility, 
         collection: visibility_options,
         selected: @article.visibility ? @article.visibility : 'Public', 
         input_html: { class: 'chosen-select form-control' }  
         %>
+      
+        <%= f.input :published_at, :class=> 'form-control', :input_html => { :value => Date.current.in_time_zone  }%>
 
-    <%= check_box_tag 'twitter', 'Yes' %> Post to Twitter?
-<%# text_area_tag 'tweet', 'Your Twitter message - via ' + root_url + Shortener::ShortenedUrl.generate(article_url(@article)).unique_key, cols:80 %> 
+        <%= f.input :image, as: :file %>
 
-    <%= text_area_tag 'tweet', 'Your Twitter message - via ' + root_url %>
 
-  <%= f.input :user_id, :as => :hidden, :input_html=>{:value=> current_user.id} if user_signed_in? %>
-
-  
-    <%= f.input :tag_list, :class=>"form-control", :input_html => {:id=>'tags', :value=> @article.tag_list.to_s},  label:  'Tags', :hint=>'(separated by commas)' %>
-  
-    <%= f.submit :class=>'btn btn-default btn-large btn-block' %>
-<% end %>
+      <%= f.input :user_id, :as => :hidden, :input_html=>{:value=> current_user.id} if user_signed_in? %>
+        <hr/>
+      
+        <%= f.submit :class=>'btn btn-default btn-large btn-block' %>
+    <% end %>
+  </div>
+</div>
