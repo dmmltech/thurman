@@ -7,7 +7,7 @@ xml.rss :version => "2.0", 'xmlns:atom' => 'http://www.w3.org/2005/Atom' do
     xml.description default_description
     xml.link default_url
     xml.language "en"
-    xml.tag! 'atom:link', :rel => 'self', :type => 'application/rss+xml', :href => feed_url
+    xml.tag! 'atom:link', :rel => 'self', :type => 'application/rss+xml', :href => 'https://thurmancms.herokuapp.com/feed/?format=rss'
 
     for article in @articles
       xml.item do
