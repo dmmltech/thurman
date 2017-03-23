@@ -75,6 +75,15 @@ module ApplicationHelper
 	end
 
 	def default_twitter(page_twitter = '')
+		base_twitter = '@dominicmliddell' 
+		if page_twitter.empty?
+		  base_twitter
+		else
+		  "#{page_twitter} "
+		end
+	end
+
+	def default_twitter_url(page_twitter = '')
 		base_twitter = 'http://twitter.com/' 
 		if page_twitter.empty?
 		  base_twitter
@@ -83,7 +92,7 @@ module ApplicationHelper
 		end
 	end
 
-	def default_facebook(page_facebook = '')
+	def default_facebook_url(page_facebook = '')
 		base_facebook = 'http://facebook.com/' 
 		if page_facebook.empty?
 		  base_facebook
@@ -92,7 +101,7 @@ module ApplicationHelper
 		end
 	end
 
-	def default_linkedin(page_linkedin = '')
+	def default_linkedin_url(page_linkedin = '')
 		base_linkedin = 'http://linkedin.com/' 
 		if page_linkedin.empty?
 		  base_linkedin
@@ -101,7 +110,7 @@ module ApplicationHelper
 		end
 	end
 
-	def default_instagram(page_instagram = '')
+	def default_instagram_url(page_instagram = '')
 		base_instagram = 'http://instagram.com/' 
 		if page_instagram.empty?
 		  base_instagram

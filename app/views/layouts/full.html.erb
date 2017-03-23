@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Thurman</title>
+    <title><%= site_title %></title>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <%= render :partial => 'shared/seo' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" crossorigin="anonymous">
      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -15,14 +15,14 @@
   <body>
 <header>
 
-    <div class="brand text-center">
-      <%= current_page?(root_path) ? '<h1>'.html_safe : '<h2>'.html_safe %>
-        <%= link_to site_title, root_path %>
-      <%= current_page?(root_path) ? '</h1>'.html_safe : '</h2>'.html_safe %>
-       <%= current_page?(root_path) ? '<h2>'.html_safe : '<h3>'.html_safe %>
-       <%= site_tagline %>
-      <%= current_page?(root_path) ? '</h2>'.html_safe : '</h3>'.html_safe %>
-    </div>
+<div class="brand text-center">
+  <%= current_page?(root_path) ? '<h1>'.html_safe : '<h2>'.html_safe %>
+    <%= link_to site_title, root_path %>
+  <%= current_page?(root_path) ? '</h1>'.html_safe : '</h2>'.html_safe %>
+   <%= current_page?(root_path) ? '<h2>'.html_safe : '<h3>'.html_safe %>
+   <%= site_tagline %>
+  <%= current_page?(root_path) ? '</h2>'.html_safe : '</h3>'.html_safe %>
+</div>
 
      <ul class="nav justify-content-center">
       <li class="nav-item">
@@ -45,16 +45,16 @@
     </footer>
     <ul class="nav justify-content-center nav-social">
       <li class="nav-item">
-        <a class="nav-link active" href="<%= default_twitter %>"><i class="fa fa-twitter"></i></a>
+        <a class="nav-link active" href="<%= default_twitter_url %>"><i class="fa fa-twitter"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= default_facebook %>"><i class="fa fa-facebook"></i></a>
+        <a class="nav-link" href="<%= default_facebook_url %>"><i class="fa fa-facebook"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= default_linkedin %>"><i class="fa fa-linkedin"></i></a>
+        <a class="nav-link" href="<%= default_linkedin_url %>"><i class="fa fa-linkedin"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= default_instagram %>"><i class="fa fa-instagram"></i></a>
+        <a class="nav-link" href="<%= default_instagram_url %>"><i class="fa fa-instagram"></i></a>
       </li>
     </ul>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"  crossorigin="anonymous"></script>
