@@ -9,6 +9,12 @@
     <%= f.input :title, :class=> 'form-control' %>
   
     <%= f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini' } }  %>
+    <div class="seo-info">
+          <hr/>
+          <strong>SEO Infomation</strong>
+          <%=f.input :seotitle, :label=>'SEO Title' %>
+          <%=f.input :seodescription, :label=>'SEO Description' %>
+        </div>
     </div>
   <div class="col-md-3 col-sm-12">
     <%= f.input :status, 
@@ -35,7 +41,7 @@
   
     <%= f.input :order, :class=> 'form-control' %>
     <%= f.input :menu, :class=> 'form-control' %>
-
+    <%= f.input :menuslug, :label=> 'Menu Text', :class=> 'form-control' %>
     <%= f.input :image, as: :file %>
     <hr/>
   

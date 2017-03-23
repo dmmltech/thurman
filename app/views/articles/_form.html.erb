@@ -17,6 +17,14 @@
     <%# text_area_tag 'tweet', 'Your Twitter message - via ' + root_url + Shortener::ShortenedUrl.generate(article_url(@article)).unique_key, cols:80 %> 
 
         <%= text_area_tag 'tweet', 'Your Twitter message - via ' + root_url, :class=>"form-control"  %>
+
+        <div class="seo-info">
+          <hr/>
+          <strong>SEO Infomation</strong>
+          <%=f.input :seotitle, :label=>'SEO Title' %>
+          <%=f.input :seodescription, :label=>'SEO Description' %>
+        </div>
+
   </div>
       <div class="col-md-3 col-sm-12">
       

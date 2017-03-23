@@ -84,7 +84,9 @@ class ArticlesController < ApplicationController
 	  	:published_at,
 	  	:visibility,
 	  	:user_id,
-	  	:image
+	  	:image,
+	  	:seotitle,
+	  	:seodescription
 	  	)
 	end
 

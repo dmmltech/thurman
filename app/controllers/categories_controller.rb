@@ -48,7 +48,9 @@ class CategoriesController < ApplicationController
 	  params.require(:category).permit(
 	  	:name,
 	  	:parent_id,
-	  	:counter_cache
+	  	:counter_cache,
+	  	:icon,
+	  	:color
 	  	)
 	end
 end

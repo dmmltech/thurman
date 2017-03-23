@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320160121) do
+ActiveRecord::Schema.define(version: 20170323015807) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20170320160121) do
     t.string   "visibility"
     t.integer  "user_id"
     t.string   "image"
+    t.string   "seotitle"
+    t.text     "seodescription"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
@@ -37,6 +39,8 @@ ActiveRecord::Schema.define(version: 20170320160121) do
     t.datetime "updated_at",                    null: false
     t.string   "slug"
     t.integer  "impressions_count", default: 0
+    t.string   "icon"
+    t.string   "color"
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
@@ -126,6 +130,9 @@ ActiveRecord::Schema.define(version: 20170320160121) do
     t.string   "visibility"
     t.string   "image"
     t.boolean  "menu",              default: false
+    t.string   "seotitle"
+    t.text     "seodescription"
+    t.string   "menuslug"
   end
 
   add_index "pages", ["parent_id"], name: "index_pages_on_parent_id"

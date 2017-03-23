@@ -65,7 +65,10 @@ class PagesController < ApplicationController
 		:parent_id,
 		:counter_cache,
 		:image,
-		:menu
+		:menu,
+		:seotitle,
+  	:seodescription,
+  	:menuslug
 	  	)
 	end
 
