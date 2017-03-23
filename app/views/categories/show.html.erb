@@ -1,1 +1,5 @@
+<% provide(:page_title, @category.name) %>
+<% provide(:page_description, @category.seodescription) %>
+<% provide(:page_url, category_url(@category)) %>
+
 <%= render :partial => 'articles/articles' %>

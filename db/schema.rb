@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170323015807) do
     t.integer  "impressions_count", default: 0
     t.string   "icon"
     t.string   "color"
+    t.text     "seodescription"
   end
 
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"

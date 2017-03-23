@@ -1,3 +1,10 @@
+<% provide(:page_title, @article.seotitle || @article.title) %>
+<% provide(:page_author, @article.user.name ) %>
+<% provide(:page_description, @article.seodescription) %>
+<% provide(:page_image, @article.image.thumb.url) %>
+<% provide(:page_url, article_url(@article)) %>
+
+
 <div class="row">
   <div class="col-md-8 offset-md-1 col-sm-12">
   <% breadcrumb :article, @article %>

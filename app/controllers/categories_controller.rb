@@ -50,7 +50,8 @@ class CategoriesController < ApplicationController
 	  	:parent_id,
 	  	:counter_cache,
 	  	:icon,
-	  	:color
+	  	:color,
+	  	:seodescription
 	  	)
 	end
 end

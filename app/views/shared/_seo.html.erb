@@ -2,27 +2,27 @@
 <!-- Twitter large image: 280x150px -->
 <!-- Facebook: 200x200px works best. Facebook recommends large images up to 1200x630px wide -->
 
-<meta name="description" content="<%= default_description %>" />
+<meta name="description" content="<%= default_description(yield(:page_description)) %>" />
 
 <!-- Schema.org markup for Google+ -->
-<meta itemprop="name" content="<%= site_title %>">
-<meta itemprop="description" content="<%= default_description %>">
-<meta itemprop="image" content="<%= default_image %>">
+<meta itemprop="name" content="<%= site_title(yield(:page_title)) %>">
+<meta itemprop="description" content="<%= default_description(yield(:page_description)) %>">
+<meta itemprop="image" content="<%= default_image(yield(:page_image)) %>">
 
 <!-- Open Graph data -->
-<meta property="og:title" content="<%= site_title %>" />
+<meta property="og:title" content="<%= site_title(yield(:page_title)) %>" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="<%= default_url %>" />
-<meta property="og:image" content="<%= default_image %>" />
-<meta property="og:description" content="<%= default_description %>" />
-<meta property="og:site_name" content="<%= site_title %>" />
+<meta property="og:url" content="<%= default_url(yield(:page_url)) %>" />
+<meta property="og:image" content="<%= default_image(yield(:page_image)) %>" />
+<meta property="og:description" content="<%= default_description(yield(:page_description)) %>" />
+<meta property="og:site_name" content="<%= site_title(yield(:page_title)) %>" />
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="<%= default_twitter %>">
-<meta property="twitter:url" content="<%= default_url %>" >
-<meta name="twitter:title" content="<%= site_title %>">
-<meta name="twitter:description" content="<%= default_description %>">
-<meta name="twitter:creator" content="<%= default_twitter %>">
+<meta name="twitter:site" content="<%= default_twitter(yield(:base_twitter)) %>">
+<meta property="twitter:url" content="<%= default_url(yield(:page_url)) %>" >
+<meta name="twitter:title" content="<%= site_title(yield(:page_title)) %>">
+<meta name="twitter:description" content="<%= default_description(yield(:page_description)) %>">
+<meta name="twitter:creator" content="<%= default_twitter(yield(:page_twitter)) %>">
 <!-- Twitter summary card with large image must be at least 280x150px -->
-<meta name="twitter:image:src" content="<%= default_image %>">
+<meta name="twitter:image:src" content="<%= default_image(yield(:page_image)) %>">

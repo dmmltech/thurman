@@ -7,5 +7,6 @@ class AddSeoTags < ActiveRecord::Migration
 		add_column :pages, :menuslug, :string
 		add_column :categories, :icon, :string
 		add_column :categories, :color, :string
+		add_column :categories, :seodescription, :text
   end
 end
