@@ -4,7 +4,8 @@
 	<div class="col-md-10 offset-md-1 col-sm-12">
 		<% breadcrumb :articles, @articles, :style => :bootstrap %>
 		<h1 class="text-center"><%= @category.name.capitalize if @category %> Articles
-		 <%= 'tagged with ' + @tag.name.capitalize if @tag %></h1>
+		<%= 'tagged with ' + @tag.name.capitalize if @tag %></h1>
+		<p class="text-center"><%= @category.seodescription if @category %></p>
 	<hr/>
 	<div class="card-columns">
 		<% @articles.each do |article| %>

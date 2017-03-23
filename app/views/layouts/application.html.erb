@@ -19,7 +19,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="<%= articles_url %>">Thurman</a>
+  <a class="navbar-brand" href="<%= articles_url %>"><%= site_title %></a>
 
   <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
     <ul class="navbar-nav ml-auto mt-2 mt-md-0 justify-content-end">
@@ -28,15 +28,20 @@
           <%= link_to parent.title.capitalize, page_path(parent), :class=> "nav-link #{css_class_active_for(page_path(parent))} " , :data=> {:toggle=>'dropdown'} %>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <% for child in children %>
-                <%= link_to child.title.capitalize, page_path(child), :class=> "dropdown-item" %>
+                <%= link_to child.menuslug.capitalize, page_path(child), :class=> "dropdown-item" %>
               <% end %>
             </div>
         </li>
       <% end %>
       <% if has_role?(:author) %>
-       <li class="nav-item">
-        <%= link_to 'Submit', new_article_path, :class=> "nav-link #{css_class_active_for(new_article_path)}"  %>
-      </li>
+        <li class="nav-item dropdown">
+        <%= link_to 'Create', '#', :class=> "nav-link #{css_class_active_for(new_page_path)} #{css_class_active_for(new_article_path)}" , :data=> {:toggle=>'dropdown'} %>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to 'New Article', new_article_path, :class=> "dropdown-item" %>
+            <%= link_to 'New Page', new_page_path, :class=> "dropdown-item" %>
+          </div>
+        </li>
+       <% end %>
       <% end %>
       <li class="nav-item">
          <%= link_to 'Read', articles_path, :class=> "nav-link #{css_class_active_for(articles_path)}" %>

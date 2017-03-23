@@ -9,7 +9,7 @@
       
         <%= f.input :title, :class=> 'form-control' %>
       
-        <%= f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini' } } %>
+        <%= f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
 
         <%= f.input :tag_list, :class=>"form-control", :input_html => {:id=>'tags', :value=> @article.tag_list.to_s},  label:  'Tags', :hint=>'(separated by commas)' %>
 

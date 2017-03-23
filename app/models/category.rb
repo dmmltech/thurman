@@ -25,7 +25,7 @@ class Category < ActiveRecord::Base
   scope :with_children, ->() { joins(:children).distinct }
   scope :top_level, ->() { where(parent_id: nil) }
 
-  before_save :ensure_one_root
+  # before_save :ensure_one_root
 
   ##
   # CLASS METHODS

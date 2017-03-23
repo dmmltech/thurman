@@ -33,6 +33,12 @@ class CategoriesController < ApplicationController
 	  @category.update(category_params)
 	  flash.notice = "'#{@category.name}' Updated!"
 	  redirect_to category_path(@category)
+		if @category.update(category_params)
+			flash.notice = "'#{@category.name}' Updated!"
+			redirect_to category_path(@category)
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
