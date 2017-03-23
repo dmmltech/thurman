@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 	before_action :authenticate_user!, :except => [:show,:thurman]
+	before_action :authorize_can_view, :only => [:show]
 
 	def index 
 		@pages = Page.paginate(:page => params[:page])
@@ -52,6 +53,18 @@ class PagesController < ApplicationController
 	end
 
 	private
+
+	def authorize_can_view
+		@page = Page.find(params[:id])
+		if @page.visibility == 'Private' || @page.visibility ==  'Hidden'|| @page.status ==  'Draft' || @page.status ==  'Scheduled'
+			if current_user
+				redirect_to pages_path unless current_user.has_any_role? :author, :admin, :editor
+		    #redirects to previous page
+		  else
+		  	redirect_to login_path
+		  end
+	  end
+	end
 
 	def page_params
 	  params.require(:page).permit(

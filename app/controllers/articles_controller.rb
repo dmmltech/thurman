@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_user!, :except => [:index,:show,:archives,:author,:feed]
+	before_action :authorize_can_view, :only => [:show]
 	
 	def index
 		@q = Article.ransack(params[:q])
@@ -72,6 +73,18 @@ class ArticlesController < ApplicationController
 	end
 
 	private
+
+	def authorize_can_view
+		@article = Article.find(params[:id])
+		if @article.visibility == 'Private' || @article.visibility ==  'Hidden'|| @article.status ==  'Draft' || @article.status ==  'Scheduled'
+			if current_user
+				redirect_to articles_path unless current_user.has_any_role? :author, :admin, :editor
+		    #redirects to previous page
+		  else
+		  	redirect_to login_path
+		  end
+	  end
+	end
 
 	def article_params
 	  params.require(:article).permit(
