@@ -19,6 +19,7 @@
 
 config/initializers/secret_token.rb
 .env
+coverage/*
 
 # Ignore application configuration
 /config/application.yml

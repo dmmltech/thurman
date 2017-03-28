@@ -4,28 +4,32 @@
     <title><%= site_title(yield(:page_title)) %></title>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link href='<%= root_url %>' rel='canonical'>
     <%= render :partial => 'shared/seo' %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
      <link rel="alternate" type="application/rss+xml"  href="<%= default_url%>/feed?format=rss">
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
     <%= csrf_meta_tags %>
   </head>
   <body>
 <header>
 
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" data-turbolinks="false">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="<%= articles_url %>"><%= site_title %></a>
 
-  <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
+  <div class="collapse navbar-collapse " id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto mt-2 mt-md-0 justify-content-end">
       <% @menupages.sort.each do |parent, children| %>
         <li class="nav-item dropdown">
-          <%= link_to parent.title.capitalize, page_path(parent), :class=> "nav-link #{css_class_active_for(page_path(parent))} " , :data=> {:toggle=>'dropdown'} %>
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= link_to parent.title.capitalize %>
+        </a>
+
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <% for child in children %>
                 <%= link_to child.menuslug.capitalize, page_path(child), :class=> "dropdown-item" %>
@@ -35,8 +39,10 @@
       <% end %>
       <% if has_role?(:author) %>
         <li class="nav-item dropdown">
-        <%= link_to 'Create', '#', :class=> "nav-link #{css_class_active_for(new_page_path)} #{css_class_active_for(new_article_path)}" , :data=> {:toggle=>'dropdown'} %>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLinka" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Create
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinka">
             <%= link_to 'New Article', new_article_path, :class=> "dropdown-item" %>
             <%= link_to 'New Page', new_page_path, :class=> "dropdown-item" %>
           </div>
@@ -64,7 +70,6 @@
 
 
  <div class="article-index-header">
-  <div class="row">
     <div class="col-md-8 offset-md-2 col-sm-12">
       <%= search_form_for @q do |f| %>
         <div class="row no-gutters">
@@ -83,7 +88,6 @@
         Don't miss an article. Subscribe to the mailing list <%= link_to 'here', leads_path %>.
       </p>
     </div>
-  </div>
 </div>
 
 </header>
@@ -123,8 +127,8 @@
         <a class="nav-link" href="<%= default_instagram_url %>"><i class="fa fa-instagram"></i></a>
       </li>
     </ul>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"  crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
      <script type="text/javascript">
       $(document).ready(function() {

@@ -7,18 +7,18 @@
 		<%= 'tagged with ' + @tag.name.capitalize if @tag %></h1>
 		<p class="text-center"><%= @category.seodescription if @category %></p>
 	<hr/>
-	<div class="card-columns">
+	<div class="row">
 		<% @articles.each do |article| %>
+		<div class="col-sm-12 col-md-6 col-lg-4">
 		    <%= link_to article_path(article) do %>
-		      <div class="col">
 		       <div class="card index-card">
 					    <%= image_tag article.image.thumb, :class=>"card-img-top img-responsive" %>
 					    <div class="card-block">
 					      <h4 class="card-title"><%= article.title %></h4>
 					    </div>
 					  </div>
-					</div>
 				<% end %>
+				</div>
 		<% end %>
 	</div>
 
