@@ -5,16 +5,42 @@
 <% provide(:page_url, article_url(@article)) %>
 
 
-<div class="row">
-  <div class="col-md-8 offset-md-1 col-sm-12">
+<div class="row no-gutters">
+  <div class="col-lg-8 offset-lg-1 col-sm-12">
   <% breadcrumb :article, @article %>
 
    <article class="post">
      <h1 class="post-title"><%= @article.title %></h1>
     <%= image_tag @article.image, :class=> 'img-responsive img-thumbnail' %>
+
+    <div class="hidden-lg-up">
+      <div class="article-meta">
+        <div class="col">
+          <i class="fa fa-clock-o"></i> <%= @article.reading_time %>
+        </div>
+        <div class="col">
+          <i class="fa fa-eye"></i> <%= @article.impressionist_count %> Views 
+        </div>
+         <div class="col">
+          <i class="fa fa-calendar"></i> <%= time_ago_in_words(@article.created_at) %> ago
+        </div>
+        <div class="col">
+          <i class="fa fa-user-o"></i> <%= link_to @article.user.name, author_path(name: @article.user) %>
+        </div>
+      </div>
+    </div>
    
     <div class="single-spacing">
       <%= simple_format(@article.body) %>
+    </div>
+
+     <div class="hidden-lg-up">
+       <p>
+          <i class="fa fa-tags"></i> Tagged:<br/>
+          <% @article.tags.each do |tag| %>
+           <span class="badge badge-info"> <%= link_to tag.name, tag_path(tag) %></span>
+          <% end %>
+        </p>
     </div>
 
     <div class="sharebar">
@@ -29,9 +55,8 @@
 
   </article>
 </div>
-
-  <div class="col-md-2 offset-md-1 col-sm-12">
-    <div class="article-meta row">
+  <div class="col-lg-2 offset-lg-1 col-md-12 col-sm-12 hidden-md-down">
+    <div class="article-meta">
       <div class="col-md-12">
         <i class="fa fa-clock-o"></i> <%= @article.reading_time %>
       </div>
@@ -52,7 +77,7 @@
        <span class="badge badge-info"> <%= link_to tag.name, tag_path(tag) %></span>
       <% end %>
     </p>
-   
+ 
     <%= render :partial => 'shared/sidebar' %>
   </div>
-</div>
+  </div>

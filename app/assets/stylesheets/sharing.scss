@@ -20,9 +20,9 @@ $size: 32px;
 
 .social-share-button {
   .ssb-icon {
-    background-size: $size $size !important;
-    height: $size !important;
-    width: $size !important;
+    background-size: $size $size;
+    height: $size;
+    width: $size;
     margin-right:4px;
   }
 }
