@@ -42,6 +42,10 @@ group :development, :test do
   gem 'guard'
   gem 'guard-minitest',     '2.3.2'
   gem "simplecov"
+  gem 'bullet'
+  gem "rubycritic", require: false
+  gem 'rubocop', require: false
+  gem 'brakeman', :require => false
   gem "codeclimate-test-reporter", "~> 1.0.0"
 end
 
